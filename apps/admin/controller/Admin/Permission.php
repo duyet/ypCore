@@ -1,0 +1,1 @@
+<?php class Controller_Admin_Admin_Permission extends ypAdminController {	public function Index() {		$this->checkLogin();		$this->loadLanguage('Admin/Admin/Permission');		}}

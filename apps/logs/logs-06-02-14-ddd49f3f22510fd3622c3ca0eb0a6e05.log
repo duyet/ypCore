@@ -1,0 +1,10 @@
+[02:09:07] #F404 :: Error 404 :: /ypCore2/admincp - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0]
+[02:09:09] #F404 :: Error 404 :: /ypCore2/admincp/setting/server - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0]
+[02:39:25] #4A1E :: (1024) :: Notice :: Error: Could not load template D:/xampp/htdocs/ypCore2/apps/admin/view//simple/module/Setting/SettingLeftMenu.php! [D:\xampp\htdocs\ypCore2\ypCore\engine\adminController.php (160)]
+[03:51:08] #F404 :: Error 404 :: /ypCore2/apps/static/javascript/jquery/jquery.min.map - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36]
+[03:53:44] #F404 :: Error 404 :: /ypCore2/apps/static/javascript/jquery/jquery.min.map - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36]
+[03:55:18] #F404 :: Error 404 :: /ypCore2/apps/static/javascript/jquery/jquery.min.map - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36]
+[03:56:10] #F404 :: Error 404 :: /ypCore2/apps/static/javascript/jquery/jquery.min.map - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36]
+[03:56:39] #F404 :: Error 404 :: /ypCore2/apps/static/javascript/jquery/jquery.min.map - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36]
+[01:11:29] #DC4B :: (2) :: Warning :: mysqli_connect(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ [D:\xampp\htdocs\ypCore2\ypCore\class\database.php (64)]

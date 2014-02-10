@@ -1,0 +1,1 @@
+<?php $_['title'] = 'Module Home Setting &middot; ypCore Administrator Panel';

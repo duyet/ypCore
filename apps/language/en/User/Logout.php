@@ -1,0 +1,1 @@
+<?php $_['title'] = 'Logout ...';$_['text_loading'] = 'Logout. Please wait...';

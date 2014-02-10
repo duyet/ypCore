@@ -1,0 +1,1 @@
+<?php $TEMPLATE_NAME = 'Admin Simple Template';$TEMPLATE_VERSION = '1.0';$TEMPLATE_FOLDER = 'simple';$TEMPLATE_AUTHOR = 'ypCore Team (yplitgroup@gmail.com)';$TEMPALTE_DATE = '01/07/2013';

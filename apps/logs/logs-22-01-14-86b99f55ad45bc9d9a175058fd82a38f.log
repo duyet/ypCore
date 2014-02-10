@@ -1,0 +1,2 @@
+[06:04:52] #2AEC :: (2) :: Warning :: rename(D:/xampp/htdocs/ypCore2/apps/cache/compile_dir\wrt52df5172ed7426.65289129,D:/xampp/htdocs/ypCore2/apps/cache/compile_dir\a1929ff40777d02f82dd450958a09e57840856f1.file.Footer.php.php): Access is denied. (code: 5) [D:\xampp\htdocs\ypCore2\ypCore\library\Smarty\sysplugins\smarty_internal_write_file.php (60)]
+[02:09:15] #F404 :: Error 404 :: /ypCore2/apps/static/javascript/jquery/jquery.min.map - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.76 Safari/537.36]

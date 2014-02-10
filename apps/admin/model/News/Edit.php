@@ -1,0 +1,1 @@
+<?php class Model_Admin_News_Edit extends ypModel {	public function loadPost($postId) {		$postId = (int) $postId;		$this->Db->query("SELECT * FROM `yp_module_news`		WHERE `post_id` = ". $postId);				if ($this->Db->num_rows() == 0) {			return FALSE;		}				return $this->Db->fetch();	}}

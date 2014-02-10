@@ -1,0 +1,5 @@
+[06:26:46] #318B :: (2) :: Warning :: call_user_func() expects parameter 1 to be a valid callback, no array or string given [J:\home\localhost\www\ypCore\ypCore\class\compresshtml.php (200)]
+[07:04:58] #3E86 :: (2) :: Warning :: Missing argument 1 for __JSCOMPRESS::__construct(), called in J:\home\localhost\www\ypCore\ypCore\engine\response.php on line 74 and defined [J:\home\localhost\www\ypCore\ypCore\class\jscompress.php (83)]
+[07:15:35] #5737 :: (2) :: Warning :: Missing argument 1 for __COMPRESSHTML::__construct(), called in J:\home\localhost\www\ypCore\ypCore\class\compresshtml.php on line 12 and defined [J:\home\localhost\www\ypCore\ypCore\class\compresshtml.php (33)]
+[07:32:16] #BC71 :: (4096) :: Unknown :: Object of class ypResponse could not be converted to string [J:\home\localhost\www\ypCore\ypCore\engine\response.php (59)]
+[08:53:26] #C84A :: (2048) :: Unknown :: Redefining already defined constructor for class Minify [J:\home\localhost\www\ypCore\apps\plugin\pdw_file_browser\minify.php (275)]

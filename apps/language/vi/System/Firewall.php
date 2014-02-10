@@ -1,0 +1,1 @@
+<?php $_['title'] = 'Tường lửa!';$_['text_go'] = 'ENTER';$_['text_info'] = 'This is firewall to anti spamBOT. Please click to ' . $_['text_go'] . ' to go to site!';

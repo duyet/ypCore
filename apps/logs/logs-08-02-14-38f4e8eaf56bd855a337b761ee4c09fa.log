@@ -1,0 +1,3 @@
+[04:07:06] #9D1C :: (2) :: Warning :: array_rand() expects parameter 1 to be array, null given [D:\xampp\htdocs\ypCore2\apps\admin\controller\System\Header.php (92)]
+[12:34:16] #F404 :: Error 404 :: /ypCore2/news/cp - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0]
+[04:18:17] #4154 :: (2) :: Warning :: file_get_contents(): php_network_getaddresses: getaddrinfo failed: No such host is known.  [D:\xampp\htdocs\ypCore2\apps\admin\controller\Tools\Update.php (14)]

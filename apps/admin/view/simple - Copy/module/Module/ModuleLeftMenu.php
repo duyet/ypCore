@@ -1,0 +1,1 @@
+<ul class="nav nav-tabs"><?php foreach($link as $_link) { ?>	<li><?php echo $_link ?></li><?php } ?></ul>

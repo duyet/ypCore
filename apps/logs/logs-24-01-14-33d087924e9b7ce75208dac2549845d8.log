@@ -1,0 +1,2 @@
+[02:57:36] #3312 :: (2) :: Warning :: mysqli_connect(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ [D:\xampp\htdocs\ypCore2\ypCore\class\database.php (64)]

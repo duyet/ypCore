@@ -1,0 +1,1 @@
+<?php $_['title'] = 'Đăng nhập';$_['text_remember_me'] = 'Ghi nhớ';$_['text_sign_in'] = 'Đăng nhập';$_['text_login'] = 'Đăng nhập';$_['text_placeholder_username'] = 'Địa chỉ Email';$_['text_placeholder_password'] = 'Mật khẩu';$_['text_register_link'] = 'hoặc <a href="%s">Đăng kí</a>';?>
