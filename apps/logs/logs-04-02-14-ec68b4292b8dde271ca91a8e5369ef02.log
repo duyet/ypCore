@@ -1,3 +1,0 @@
-[01:05:31] #3A7B :: (1024) :: Notice :: Error: Could not load template D:/xampp/htdocs/ypCore2/apps/admin/view//simple/module/Setting/SettingLeftMenu.php! [D:\xampp\htdocs\ypCore2\ypCore\engine\adminController.php (160)]
-[04:27:04] #F404 :: Error 404 :: /ypCore2/admincp/user - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36]
-[04:29:47] #F404 :: Error 404 :: /ypCore2/admincp/setting/phpinfo - IP :: 0.0.0.0 - UserAgent :: [Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36]

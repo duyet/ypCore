@@ -1,1 +1,0 @@
-[09:11:54] #53F1 :: (2) :: Warning :: Missing argument 1 for __DATABASE::query(), called in J:\home\localhost\www\ypCore\apps\admin\model\Module\News\Listpost.php on line 29 and defined [J:\home\localhost\www\ypCore\ypCore\class\database.php (110)]

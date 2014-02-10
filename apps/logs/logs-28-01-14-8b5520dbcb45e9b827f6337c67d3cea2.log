@@ -1,4 +1,0 @@
-[04:17:19] #E593 :: (1024) :: Notice :: Could not load language file: D:/xampp/htdocs/ypCore2/apps/admin/language/en/Module/News/Setting.php [D:\xampp\htdocs\ypCore2\apps\class\language.php (35)]
-[04:30:47] #209D :: (1024) :: Notice :: Error: Could not load controller Admin/Module/News/Setting/LeftColumn! [D:\xampp\htdocs\ypCore2\ypCore\engine\adminController.php (106)]
-[02:05:26] #090E :: (2) :: Warning :: mysqli_connect(): (HY000/2002): No connection could be made because the target machine actively refused it.
- [D:\xampp\htdocs\ypCore2\ypCore\class\database.php (64)]
