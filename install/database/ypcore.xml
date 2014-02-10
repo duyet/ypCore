@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.0.4.1
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Feb 09, 2014 at 09:42 AM
+- Server version: 5.5.32
+- PHP Version: 5.4.19
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="ypcore" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="yp_admin_logs">
+                CREATE TABLE `yp_admin_logs` (
+                  `id` int(200) NOT NULL,
+                  `username` varchar(250) NOT NULL,
+                  `message` varchar(250) NOT NULL,
+                  `time` int(250) NOT NULL,
+                  `ip` varchar(250) NOT NULL,
+                  `user_agent` varchar(250) NOT NULL,
+                  `url` varchar(250) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="yp_data">
+                CREATE TABLE `yp_data` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(500) NOT NULL,
+                  `value` text NOT NULL,
+                  `serialized` int(11) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="yp_module_news">
+                CREATE TABLE `yp_module_news` (
+                  `post_id` int(10) NOT NULL AUTO_INCREMENT,
+                  `title` varchar(250) NOT NULL,
+                  `title_alias` varchar(250) NOT NULL,
+                  `post` text NOT NULL,
+                  `tag` varchar(250) NOT NULL,
+                  `keyword` varchar(250) NOT NULL,
+                  `reply_count` int(10) NOT NULL DEFAULT '0',
+                  `view_count` int(10) NOT NULL DEFAULT '0',
+                  `user_id` int(10) NOT NULL DEFAULT '0',
+                  `username` varchar(50) NOT NULL,
+                  `post_date` int(10) NOT NULL,
+                  `like` varchar(250) NOT NULL,
+                  `like_count` int(10) NOT NULL DEFAULT '0',
+                  `status` varchar(10) NOT NULL DEFAULT '1',
+                  `time_last_change` int(11) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`post_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="yp_module_news_cat">
+                CREATE TABLE `yp_module_news_cat` (
+                  `cat_id` int(10) NOT NULL AUTO_INCREMENT,
+                  `title` varchar(250) NOT NULL,
+                  `title_alias` varchar(250) NOT NULL,
+                  `description` varchar(250) NOT NULL,
+                  `cat_parent_id` int(10) NOT NULL DEFAULT '0',
+                  `order` int(10) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`cat_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="yp_module_news_comment">
+                CREATE TABLE `yp_module_news_comment` (
+                  `id` int(10) NOT NULL AUTO_INCREMENT,
+                  `post_id` int(10) NOT NULL DEFAULT '0',
+                  `user_id` int(11) NOT NULL DEFAULT '0',
+                  `username` varchar(150) NOT NULL,
+                  `email` varchar(150) NOT NULL,
+                  `comment` text NOT NULL,
+                  `date` int(10) NOT NULL,
+                  `like` text NOT NULL,
+                  `like_count` int(10) NOT NULL DEFAULT '0',
+                  `status` varchar(10) NOT NULL DEFAULT '1',
+                  `parent_id` int(10) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="yp_module_news_tag">
+                CREATE TABLE `yp_module_news_tag` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `post_id` int(25) NOT NULL,
+                  `tag` varchar(250) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="yp_sessions">
+                CREATE TABLE `yp_sessions` (
+                  `hash` varchar(250) NOT NULL,
+                  `last_time` int(50) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="yp_settings">
+                CREATE TABLE `yp_settings` (
+                  `setting` varchar(50) NOT NULL,
+                  `value` text NOT NULL,
+                  `serialized` tinyint(1) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`setting`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="yp_stat">
+                CREATE TABLE `yp_stat` (
+                  `day` int(2) NOT NULL,
+                  `month` int(2) NOT NULL,
+                  `year` int(4) NOT NULL,
+                  `value` int(10) NOT NULL DEFAULT '1'
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="yp_usergroup">
+                CREATE TABLE `yp_usergroup` (
+                  `groupid` int(11) NOT NULL AUTO_INCREMENT,
+                  `groupname` varchar(20) NOT NULL,
+                  `description` varchar(200) NOT NULL,
+                  PRIMARY KEY (`groupid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="yp_users">
+                CREATE TABLE `yp_users` (
+                  `userid` int(11) NOT NULL AUTO_INCREMENT,
+                  `username` text NOT NULL,
+                  `password` text NOT NULL,
+                  `salt` varchar(10) NOT NULL,
+                  `full_name` varchar(50) NOT NULL,
+                  `email` varchar(50) NOT NULL,
+                  `groupid` tinyint(2) NOT NULL DEFAULT '1',
+                  `birthday` date NOT NULL,
+                  `register_day` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`userid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'ypcore'
+    -->
+    <database name="ypcore">
+        <!-- Table yp_admin_logs -->
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit URL and HTML Setting.</column>
+            <column name="time">1391589335</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Furlandhtml</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit URL and HTML Setting.</column>
+            <column name="time">1391589715</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Furlandhtml</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit User setting.</column>
+            <column name="time">1391590161</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Fuser</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit User setting.</column>
+            <column name="time">1391590196</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Fuser</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391590866</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391590872</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcontrol%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391590962</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcontrol%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391591070</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcontrol%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391591155</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcontrol%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391591158</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391591288</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391591293</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fadmincp%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391598865</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit URL and HTML Setting.</column>
+            <column name="time">1391600009</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Furlandhtml</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Security Setting.</column>
+            <column name="time">1391600158</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Fsecurity</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit User setting.</column>
+            <column name="time">1391650750</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Fuser</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Template Setting.</column>
+            <column name="time">1391740443</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Ftemplate</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Template Setting.</column>
+            <column name="time">1391740461</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Ftemplate</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Template Setting.</column>
+            <column name="time">1391740466</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Ftemplate</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Template Setting.</column>
+            <column name="time">1391740756</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Ftemplate</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Template Setting.</column>
+            <column name="time">1391740763</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Ftemplate</column>
+        </table>
+        <table name="yp_admin_logs">
+            <column name="id">0</column>
+            <column name="username">admin</column>
+            <column name="message">Edit Template Setting.</column>
+            <column name="time">1391740768</column>
+            <column name="ip">::1</column>
+            <column name="user_agent">Mozilla/5.0 (Windows NT 6.3; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</column>
+            <column name="url">http%3A%2F%2Flocalhost%2FypCore2%2Fcp%2Fsetting%2Ftemplate</column>
+        </table>
+        <!-- Table yp_data -->
+        <!-- Table yp_module_news -->
+        <table name="yp_module_news">
+            <column name="post_id">1</column>
+            <column name="title">GoDaddy changing security policy after infamous social engineering attack on @N</column>
+            <column name="title_alias">GoDaddy-changing-security-policy-after-infamous-social-engineering-attack-on-@N.html</column>
+            <column name="post">&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://thenextweb.com/socialmedia/2014/01/29/lost-50000-twitter-username/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(255, 60, 31); text-decoration: none;&amp;quot;&amp;gt;Naoki Hiroshima&amp;amp;rsquo;s&amp;lt;/a&amp;gt;&amp;amp;nbsp;scary tale of losing his single-character Twitter handle has captivated the internet over the last few days. First,&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/socialmedia/2014/01/29/lost-50000-twitter-username/#!t9ais&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(255, 60, 31); text-decoration: none;&amp;quot;&amp;gt;we heard the story of how Naoki was held ransom&amp;lt;/a&amp;gt;&amp;amp;nbsp;for the rare handle,&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/insider/2014/01/30/godaddy-accepts-partial-responsibility-social-engineering-attack-ns-customer-account/#!t9ajq&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(255, 60, 31); text-decoration: none;&amp;quot;&amp;gt;then GoDaddy admitted it was partially responsible&amp;lt;/a&amp;gt;&amp;amp;nbsp;for giving out details that lead to the compromise.&amp;lt;/p&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;p&amp;gt;Today, GoDaddy said on Twitter that it is changing its security policies to help protect against similar attacks of social engineering in the future:&amp;lt;/p&amp;gt;
+
+&amp;lt;blockquote&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;https://twitter.com/N_is_stolen&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(255, 60, 31); text-decoration: none;&amp;quot;&amp;gt;@N_is_stolen&amp;lt;/a&amp;gt;&amp;amp;nbsp;Will do. We now require 8 card digits, lock after 3 attempts and deal with 2-factor authentication accounts differently. ^NF&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;&amp;amp;mdash; GoDaddy (@GoDaddy)&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://twitter.com/GoDaddy/statuses/429607819147739137&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(255, 60, 31); text-decoration: none;&amp;quot;&amp;gt;February 1, 2014&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+
+&amp;lt;p&amp;gt;The change may appear small on the surface, but should help prevent a repeat of the same story. It would be extremely hard for an attacker to gain 8 digits of a credit card (unless the whole card was stolen) and by locking the account after 3 attempts the company is protecting itself from attackers that would just hang up the phone and try again with a new representative.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Unfortunately, Naoki&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/twitter/2014/01/30/the-original-owner-of-n-still-hasnt-got-his-twitter-account-back-someone-else-snapped-it-up/#!t9bLv&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(255, 60, 31); text-decoration: none;&amp;quot;&amp;gt;still hasn&amp;amp;rsquo;t received his Twitter account back&amp;lt;/a&amp;gt;&amp;amp;nbsp;with the handle now in the grips of yet another squatter. The story isn&amp;amp;rsquo;t quite over yet.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;➤&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://techcrunch.com/2014/02/01/godaddy-updates-its-user-protection-policies-in-wake-of-infamous-twitter-account-extortion/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(255, 60, 31); text-decoration: none;&amp;quot;&amp;gt;GoDaddy Updates Its User Protection Policies In Wake Of Infamous Twitter Account Extortion&amp;amp;nbsp;[Techcrunch]&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag">Godady, TNW</column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">3</column>
+            <column name="user_id">0</column>
+            <column name="username">duyet2000@gmail.com</column>
+            <column name="post_date">1391346420</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">1391346516</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">2</column>
+            <column name="title">Google brings Chrome apps to Android and iOS, lets developers submit to Google Play and Apple’s App Store</column>
+            <column name="title_alias">Google-brings-Chrome-apps-to-Android-and-iOS-lets-developers-submit-to-Google-Play-and-Apple’s-App-Store.html</column>
+            <column name="post">&amp;lt;p&amp;gt;Google today&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://blog.chromium.org/2014/01/run-chrome-apps-on-mobile-using-apache.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;launched&amp;lt;/a&amp;gt;&amp;amp;nbsp;Chrome apps for Android and iOS. The company is offering an early developer preview of a toolchain based on&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://cordova.apache.org/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Apache Cordova&amp;lt;/a&amp;gt;, an open-source mobile development framework for building native mobile apps using HTML, CSS and JavaScript. Developers can use the tool to wrap their Chrome app with a native application shell that enables them to distribute it via Google Play and Apple&amp;amp;rsquo;s App Store.&amp;lt;/p&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;p&amp;gt;Today&amp;amp;rsquo;s announcement builds on the company&amp;amp;rsquo;s&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/google/2013/09/05/google-chrome-becomes-a-true-platform-with-todays-launch-of-chrome-apps/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;launch of Chrome apps in September&amp;lt;/a&amp;gt;&amp;amp;nbsp;that work offline by default and act like native applications on the host operating system. Those Chrome apps work on Windows,&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/google/2013/12/11/googles-chrome-app-launcher-now-available-mac-users/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Mac&amp;lt;/a&amp;gt;, and Chrome OS, but now the company wants to bring them to the mobile world.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Last month, we&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/google/2013/12/03/google-building-chrome-apps-support-android-ios-beta-release-coming-soon-january-2014/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;broke the news&amp;lt;/a&amp;gt;&amp;amp;nbsp;that the company was working on bringing Chrome packaged apps from the desktop to the mobile world. At the time, Google developer advocate Joe Marini said the beta toolkit for porting and building such apps would be ready in January. In the last week of the month, Google has delivered as promised.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Google offers two developer workflows for the aforementioned native app packaging process. You can run your Chrome app on a device or emulator using the command-line or an IDE, and you can also use the&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://github.com/MobileChromeApps/harness/releases/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Chrome Apps Developer Tool&amp;lt;/a&amp;gt;&amp;amp;nbsp;to run your app on an Android device without the need to install the mobile platform&amp;amp;rsquo;s SDK or an IDE.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Here is an example of a basic to-do list Chrome app running on OS X as well as Android:&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://cdn2.tnwcdn.com/wp-content/blogs.dir/1/files/2014/01/chrome_app_mac_android.png&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;img alt=&amp;quot;chrome app mac android Google brings Chrome apps to Android and iOS, lets developers submit to Google Play and Apples App Store&amp;quot; class=&amp;quot;aligncenter size-full wp-image-730536&amp;quot; src=&amp;quot;http://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/2014/01/chrome_app_mac_android.png&amp;quot; style=&amp;quot;-webkit-user-select:none; border-image:none; border:0px currentColor; box-sizing:border-box; display:block; height:auto; margin-left:auto; margin-right:auto; max-width:100%; width:485px&amp;quot; title=&amp;quot;chrome app mac android photo&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;For those who don&amp;amp;rsquo;t know, Chrome packaged apps are written in HTML, JavaScript, and CSS, but launch outside the browser, work offline by default, and access certain APIs not available to Web apps. For these mobile apps, developers have access to&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://plugins.cordova.io/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Cordova APIs&amp;lt;/a&amp;gt;&amp;amp;nbsp;as well as many of the core Chrome APIs, including:&amp;lt;/p&amp;gt;
+
+&amp;lt;ul style=&amp;quot;list-style: none; margin: 1em 0px; color: rgb(78, 88, 96); line-height: 28.79px; padding-right: 0px; padding-left: 2em; font-family: &amp;amp;quot;FF Tisa&amp;amp;quot;; font-size: 16px; box-sizing: border-box;&amp;quot;&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://developer.chrome.com/apps/identity.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;identity&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;ndash; sign-in users usingOAuth2 without prompting for passwords.&amp;lt;/li&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://developer.chrome.com/apps/in_app_payments.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;payments&amp;lt;/a&amp;gt;&amp;amp;nbsp;(currently Android only) &amp;amp;ndash; sell virtual goods within your mobile app.&amp;lt;/li&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://developer.chrome.com/apps/pushMessaging.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;pushMessaging&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;ndash; push messages to your app from your server.&amp;lt;/li&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://developer.chrome.com/apps/socket.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;sockets&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;ndash; send and receive data over the network using TCP and UDP.&amp;lt;/li&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://developer.chrome.com/apps/notifications.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;notifications&amp;lt;/a&amp;gt;&amp;amp;nbsp;(currently Android only) &amp;amp;ndash; send rich notifications from your mobile app.&amp;lt;/li&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;https://developer.chrome.com/apps/storage.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;storage&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;ndash; store and retrieve key-value data locally.&amp;lt;/li&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;https://developer.chrome.com/apps/storage.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;syncFileSystem&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;ndash; store and retrieve files backed by Google Drive.&amp;lt;/li&amp;gt;
+	&amp;lt;li style=&amp;quot;margin: 0.5em 0px; padding: 0px; line-height: 1.6em; font-size: 1.1em; box-sizing: border-box;&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://developer.chrome.com/apps/alarms.html&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;alarms&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;amp;ndash; run tasks periodically.&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+
+&amp;lt;p&amp;gt;If you&amp;amp;rsquo;re a developer interested in building Chrome apps for mobile, or porting your existing Chrome apps to mobile, you can get started by checking out&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://github.com/MobileChromeApps/mobile-chrome-apps/blob/master/README.md&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;the readme&amp;lt;/a&amp;gt;, as well as the links below.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;➤&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://github.com/GoogleChrome/chrome-app-samples#mobile-support&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Sample apps&amp;lt;/a&amp;gt;&amp;amp;nbsp;|&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://stackoverflow.com/questions/tagged/google-chrome-app&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Stack Overflow&amp;lt;/a&amp;gt;&amp;amp;nbsp;|&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://groups.google.com/a/chromium.org/forum/#!forum/chromium-apps&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Developer Forum&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;See also &amp;amp;ndash;&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/google/2013/11/21/google-building-chrome-app-based-development-environment-using-dart-polymer/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Google is building a Chrome app-based development environment called Spark&amp;lt;/a&amp;gt;&amp;amp;nbsp;and&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://thenextweb.com/google/2013/11/28/googles-chromium-team-building-way-launch-apps-without-installation-just-clicking-link/&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Google&amp;amp;rsquo;s Chromium team is building a way to launch apps without installation by just clicking a link&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;&amp;lt;em&amp;gt;Top Image Credit:&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://www.gettyimages.co.uk/Search/Search.aspx?assettype=image&amp;amp;amp;artist=AFP&amp;quot; style=&amp;quot;color: rgb(255, 60, 31); text-decoration: none; box-sizing: border-box;&amp;quot;&amp;gt;Kimihiro Hoshino/AFP/Getty Images&amp;lt;/a&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag">Google, TNW</column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">4</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391346485</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">1391689520</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">3</column>
+            <column name="title">Chạy thử mã nguồn mở ypCore v0.1.0 mã hiệu releases beta test</column>
+            <column name="title_alias">Ra-mắt-beta-test-ma-nguồn-mở-ypCore-v0-1-0.html</column>
+            <column name="post">&amp;lt;p&amp;gt;[Lemon9x.com] 02/02/2014 - Ch&amp;amp;iacute;nh thức ra mắt m&amp;amp;atilde; nguồn mở ypCore v.0.1.0 Beta Test.&amp;amp;nbsp;&amp;lt;br /&amp;gt;
+M&amp;amp;atilde; hiệu 521d-test&amp;lt;br /&amp;gt;
+Author: &amp;lt;a href=&amp;quot;https://lvduit.appspot.com&amp;quot;&amp;gt;LvDuit&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;
+Update: 02/02/2014&amp;lt;br /&amp;gt;
+Email: &amp;lt;a href=&amp;quot;mail:duyet2000@gmail.com&amp;quot;&amp;gt;duyet2000@gmail.com&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;This is new post from tester. It&amp;amp;#39;s very easy to use. Now, I try to find a new content, some trouble, such as Editor, Front and Core themes, and so so.&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag">open-beta, new, test</column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">9</column>
+            <column name="user_id">0</column>
+            <column name="username">duyet2000@gmail.com</column>
+            <column name="post_date">1391346785</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">1391403620</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">4</column>
+            <column name="title">This is Tiếng Việt and this is English, I just test Font</column>
+            <column name="title_alias">This-is-tieng-Viet-and-this-is-English-I-just-test-Font.html</column>
+            <column name="post">&amp;lt;p&amp;gt;Đ&amp;amp;acirc;y l&amp;amp;agrave; b&amp;amp;agrave;i viết test để phục vụ mục đ&amp;amp;iacute;ch test. Nếu bạn k muốn test th&amp;amp;igrave; đừng c&amp;amp;oacute; viết c&amp;amp;aacute;i b&amp;amp;agrave;i viết test để phục vụ cho mục đ&amp;amp;iacute;ch test để test giống như t&amp;amp;ocirc;i đang test thế n&amp;amp;agrave;y.&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag">Test cái *beep*</column>
+            <column name="keyword">Đây là 1 cái test keyword thôi, chứ nó éo có phải là keyword</column>
+            <column name="reply_count">0</column>
+            <column name="view_count">3</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391531641</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">1391615767</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">5</column>
+            <column name="title">Sample Page</column>
+            <column name="title_alias">Sample-Page.html</column>
+            <column name="post">&amp;lt;div class=&amp;quot;entry-content&amp;quot;&amp;gt;
+&amp;lt;p&amp;gt;This is an example page. It&amp;amp;rsquo;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:&amp;lt;/p&amp;gt;
+
+&amp;lt;blockquote&amp;gt;
+&amp;lt;p&amp;gt;Hi there! I&amp;amp;rsquo;m a bike messenger by day, aspiring actor by night, and this is my blog. I live in Los Angeles, have a great dog named Jack, and I like pi&amp;amp;ntilde;a coladas. (And gettin&amp;amp;rsquo; caught in the rain.)&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+
+&amp;lt;p&amp;gt;&amp;amp;hellip;or something like this:&amp;lt;/p&amp;gt;
+
+&amp;lt;blockquote&amp;gt;
+&amp;lt;p&amp;gt;The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+
+&amp;lt;p&amp;gt;As a new WordPress user, you should go to &amp;lt;a href=&amp;quot;http://localhost/wordpress-3.8/wp-admin/&amp;quot;&amp;gt;your dashboard&amp;lt;/a&amp;gt; to delete this page and create new pages for your content. Have fun!&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+</column>
+            <column name="tag"></column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">8</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391611146</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">0</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">6</column>
+            <column name="title">Những stt buồn</column>
+            <column name="title_alias">nhung-stt-buon</column>
+            <column name="post">&amp;lt;p&amp;gt;Chấp nhận y&amp;amp;ecirc;u anh l&amp;amp;agrave; em đ&amp;amp;atilde; chấp nhận mọi tổn thương...bởi Người dự bị...phải chịu đau&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;- Người đến sau...bao giờ cũng kh&amp;amp;oacute;c Hạnh ph&amp;amp;uacute;c&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;- Đổi bằng nước mắt Niềm tin&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;- Mua bằng tổn thương Cuối c&amp;amp;ugrave;ng&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;- Y&amp;amp;ecirc;u l&amp;amp;agrave; cho v&amp;amp;agrave; nhận&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;- Hay đơn giản...chỉ l&amp;amp;agrave; hận v&amp;amp;agrave; đau&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag">Fb</column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">0</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391615963</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">1391617693</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">7</column>
+            <column name="title">Hello world!</column>
+            <column name="title_alias">hello-word</column>
+            <column name="post">&amp;lt;p&amp;gt;Welcome to ypCore. This is your first post. Edit or delete it, then start blogging!&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag">sssssssssss</column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">6</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391649663</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">1391649828</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">8</column>
+            <column name="title">This just a test, test tag</column>
+            <column name="title_alias">This-just-a-test-test-tag</column>
+            <column name="post"></column>
+            <column name="tag"></column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">2</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391649869</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">0</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">9</column>
+            <column name="title">This is Google</column>
+            <column name="title_alias">This-is-Google</column>
+            <column name="post">&amp;lt;hr /&amp;gt;
+&amp;lt;p&amp;gt;cccccccccccc&amp;lt;/p&amp;gt;
+
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;p&amp;gt;ccccccccccccccccccccccccccccccccccc&amp;amp;nbsp;&amp;lt;/p&amp;gt;
+
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;hr /&amp;gt;
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;p&amp;gt;ccccccccccccccccccccccccccccccc&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag"></column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">0</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391688788</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">0</column>
+        </table>
+        <table name="yp_module_news">
+            <column name="post_id">10</column>
+            <column name="title">Firefox’s Chrome-Like Australis Redesign Arrives In Aurora Release Channel</column>
+            <column name="title_alias">Firefox’s-Chrome-Like-Australis-Redesign-Arrives-In-Aurora-Release-Channel</column>
+            <column name="post">&amp;lt;p&amp;gt;This has been a long time in the making, but after almost&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://blog.mozilla.org/ux/2013/12/whywhatiswhere/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;three months&amp;lt;/a&amp;gt;&amp;amp;nbsp;of testing in the highly experimental Firefox Nightly release channel, Firefox&amp;amp;rsquo;s new Australis user interface has now&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://www.mozilla.org/en-US/firefox/29.0a2/auroranotes/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;found its way&amp;lt;/a&amp;gt;&amp;amp;nbsp;into the&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://www.mozilla.org/en-US/firefox/aurora/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;pre-beta Aurora channel&amp;lt;/a&amp;gt;. The&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://blog.mozilla.org/futurereleases/2014/02/07/test-the-new-firefox-sync-and-customize-the-new-ui-in-firefox-aurora/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;new user interface&amp;lt;/a&amp;gt;, which the company has been working on for&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://techcrunch.com/2013/06/01/mozilla-readies-major-firefox-redesign-as-it-ponders-what-the-browser-of-the-future-should-look-like/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot;&amp;gt;a long time&amp;lt;/a&amp;gt;, gives the browser a more Chrome-like look. As in Chrome, the settings and options are now behind the same kind of&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://www.designfloat.com/blog/2013/09/09/hamburger-menu-prominent-ui-evolution/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;drawer menu&amp;lt;/a&amp;gt;&amp;amp;nbsp;next to the URL bar as in Google&amp;amp;rsquo;s browser and rounded tabs at the top of the screen.&amp;lt;/p&amp;gt;
+
+&amp;lt;div style=&amp;quot;page-break-after: always;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;display:none&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;p&amp;gt;These similarities with Chrome is likely the first thing users will notice. Indeed, if you quickly switch back and forth between the two, you&amp;amp;rsquo;ll likely get confused about which one is which.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;The team also completely redesigned the menu too, and added a large number of customization options that aren&amp;amp;rsquo;t available in most other browsers. While Firefox was always pretty customizable, this new version makes it far easier to discover these customization options and use them. Just click on &amp;amp;lsquo;customize&amp;amp;rsquo; in the menu and drag and drop menu items around to improve your user experience.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;&amp;lt;img alt=&amp;quot;australis_menu_001&amp;quot; class=&amp;quot;alignright wp-image-955030&amp;quot; src=&amp;quot;http://tctechcrunch2011.files.wordpress.com/2014/02/australis_menu_001.png?w=350&amp;amp;amp;h=434&amp;quot; style=&amp;quot;border:1px solid rgb(213, 213, 213); box-sizing:content-box; float:right; height:auto; margin:0px 0px 1em 1em; max-width:100%; width:350px&amp;quot; /&amp;gt;If you always want to have the developer tools accessible in the URL bar, for example, that&amp;amp;rsquo;s now easy to do.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;As&amp;amp;nbsp;Mozilla&amp;amp;rsquo;s VP of Firefox engineering Jonathan Nightingale told me&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://techcrunch.com/2013/06/01/mozilla-readies-major-firefox-redesign-as-it-ponders-what-the-browser-of-the-future-should-look-like/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot;&amp;gt;last year&amp;lt;/a&amp;gt;, the idea behind the redesign was to give users a browser that is simpler to use, with a cleaner and more intuitive design. As you open more tabs, for example, those that aren&amp;amp;rsquo;t in the foreground fade into the background &amp;amp;ldquo;to make it faster for you to find and focus on the tab you want.&amp;amp;rdquo;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Now that Australis is part of Firefox&amp;amp;rsquo;s regular release channels, it will slowly find its way into the beta and stable channels, too. It&amp;amp;rsquo;s unclear when exactly this will happen. Mozilla often holds back features from graduating to the next channel until it feels they are ready for a wider release, and this new user interface will surely spark some interesting discussions among Firefox&amp;amp;rsquo;s users.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;As part of today&amp;amp;rsquo;s update, Mozilla is also launching&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://blog.mozilla.org/blog/2014/02/07/introducing-mozilla-firefox-accounts/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Firefox Accounts&amp;lt;/a&amp;gt;, which will offer access to the latest update of&amp;amp;nbsp;&amp;lt;a href=&amp;quot;https://blog.mozilla.org/services/2014/02/07/a-better-firefox-sync/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Firefox Sync&amp;lt;/a&amp;gt;&amp;amp;nbsp;and other tools. While Mozilla has long offered users a way to sync their bookmarks, add-ons, passwords and open tabs across machines, it never offered users an easy way to just sign up and sign in to access all the integrated services across its products.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;Firefox Accounts are now available in the Aurora release channel, too, so if you want to try both the new user interface and these new tools, just head&amp;amp;nbsp;&amp;lt;a href=&amp;quot;http://www.mozilla.org/en-US/firefox/aurora/&amp;quot; style=&amp;quot;box-sizing: border-box; color: rgb(8, 158, 0); text-decoration: none; outline: 0px;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;over here&amp;lt;/a&amp;gt;&amp;amp;nbsp;and install the Aurora release. It won&amp;amp;rsquo;t overwrite your existing Firefox install.&amp;lt;/p&amp;gt;
+</column>
+            <column name="tag"></column>
+            <column name="keyword"></column>
+            <column name="reply_count">0</column>
+            <column name="view_count">3</column>
+            <column name="user_id">0</column>
+            <column name="username">admin</column>
+            <column name="post_date">1391852097</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status">1</column>
+            <column name="time_last_change">0</column>
+        </table>
+        <!-- Table yp_module_news_cat -->
+        <table name="yp_module_news_cat">
+            <column name="cat_id">1</column>
+            <column name="title">Thông báo</column>
+            <column name="title_alias">Thong-bao</column>
+            <column name="description">Thông báo, tin tức mới</column>
+            <column name="cat_parent_id">0</column>
+            <column name="order">1</column>
+        </table>
+        <table name="yp_module_news_cat">
+            <column name="cat_id">2</column>
+            <column name="title">Tin tức</column>
+            <column name="title_alias">Tin-tuc</column>
+            <column name="description">Tin tức, tin giới trẻ, tin thế giới...</column>
+            <column name="cat_parent_id">0</column>
+            <column name="order">0</column>
+        </table>
+        <table name="yp_module_news_cat">
+            <column name="cat_id">3</column>
+            <column name="title">Hệ thống</column>
+            <column name="title_alias">He-thong</column>
+            <column name="description">Thông báo mới từ hệ thống</column>
+            <column name="cat_parent_id">1</column>
+            <column name="order">0</column>
+        </table>
+        <table name="yp_module_news_cat">
+            <column name="cat_id">4</column>
+            <column name="title">Đội code</column>
+            <column name="title_alias">Doi-code</column>
+            <column name="description">Thông tin từ đội code</column>
+            <column name="cat_parent_id">1</column>
+            <column name="order">0</column>
+        </table>
+        <!-- Table yp_module_news_comment -->
+        <table name="yp_module_news_comment">
+            <column name="id">1</column>
+            <column name="post_id">1</column>
+            <column name="user_id">1</column>
+            <column name="username">admin</column>
+            <column name="email"></column>
+            <column name="comment">Tuyệt! Phải test thử mới được!</column>
+            <column name="date">0</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">2</column>
+            <column name="post_id">1</column>
+            <column name="user_id">1</column>
+            <column name="username">MOD</column>
+            <column name="email"></column>
+            <column name="comment">Good Job!</column>
+            <column name="date">0</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">3</column>
+            <column name="post_id">1</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">hello!!!!!!!</column>
+            <column name="date">1375110716</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">4</column>
+            <column name="post_id">1</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">Goooooooooooooooooooooooooooooooooooooooooooooooo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</column>
+            <column name="date">1375110759</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">5</column>
+            <column name="post_id">1</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">&amp;lt;b&amp;gt;Google.com&amp;lt;/b&amp;gt;</column>
+            <column name="date">1375110793</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">6</column>
+            <column name="post_id">1</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">
+HOME
+NEWS
+DOWNLOAD
+ACCOUNT
+CONTACT
+ra mắt chính thức ypcore cms v1.0
+23/07/2013 12:39	 ·  by admin	 ·  view 187 time(s)	 ·  5 like(s) Add-this share 
+Chính thức ra mắt ypCore ampha v1.0 
+
+Sau 2 tháng Code cuối cùng bản Final cũng đã hoàn thành!
+
+Tag: No tag
+comment
+Comment was successfully!
+Account: admin
+Email: duyet2000@gmail.com
+   Comment
+list comment
+ admin 07:00 01/01/1970: Tuyệt! Phải test thử mới được!
+
+ MOD 07:00 01/01/1970: Good Job!
+
+ admin 11:11 29/07/2013: hello!!!!!!!
+
+ admin 11:12 29/07/2013: Goooooooooooooooooooooooooooooooooooooooooooooooo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ admin 11:13 29/07/2013: &amp;lt;b&amp;gt;Google.com&amp;lt;/b&amp;gt;
+
+ypCore v1.1.46 r6542 · (c) 2013 · Lemon9x · Facebook · Twitter · Build in 0.29166s · Explain debug
+</column>
+            <column name="date">1375110814</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">7</column>
+            <column name="post_id">5</column>
+            <column name="user_id">0</column>
+            <column name="username">Google</column>
+            <column name="email">google@gmail.com</column>
+            <column name="comment">Test a comment from ypCore !!!</column>
+            <column name="date">1375111292</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">8</column>
+            <column name="post_id">5</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">wwwwwwwwwwwwwwwwwwwwwww</column>
+            <column name="date">1375237930</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">9</column>
+            <column name="post_id">5</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">Test minify</column>
+            <column name="date">1375252369</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">10</column>
+            <column name="post_id">5</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">aaaaaaaaaaaaaaaaaaaaaaa</column>
+            <column name="date">1375252391</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">11</column>
+            <column name="post_id">5</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">Testttttttttttttttttttttttttttttttttttttttttt minifyt</column>
+            <column name="date">1375257328</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">12</column>
+            <column name="post_id">5</column>
+            <column name="user_id">0</column>
+            <column name="username">XUtttt</column>
+            <column name="email">duye@gamil.com</column>
+            <column name="comment">st Comment
+ Google 11:21 29/07/2013: Test a comment from ypCore !!!
+
+ admin 10:32 31/07/2013: wwwwwwwwwwwwwwwwwwwwwww
+
+ admin 02:32 31/07/2013: Test minify
+
+ admin 02:33 31/07/2013: aaaaaaaaaaaaaaaaaaaaaaa
+
+ admin 03:55 31/07/2013: Testttttt</column>
+            <column name="date">1375261192</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">13</column>
+            <column name="post_id">1</column>
+            <column name="user_id">7</column>
+            <column name="username">google</column>
+            <column name="email">googl@ggoo.com</column>
+            <column name="comment">fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</column>
+            <column name="date">1375335856</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <table name="yp_module_news_comment">
+            <column name="id">14</column>
+            <column name="post_id">1</column>
+            <column name="user_id">5</column>
+            <column name="username">admin</column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="comment">sjsdjkfskjdfsjkdhfd</column>
+            <column name="date">1375589429</column>
+            <column name="like"></column>
+            <column name="like_count">0</column>
+            <column name="status"></column>
+            <column name="parent_id">0</column>
+        </table>
+        <!-- Table yp_module_news_tag -->
+        <table name="yp_module_news_tag">
+            <column name="id">36</column>
+            <column name="post_id">22</column>
+            <column name="tag">test</column>
+        </table>
+        <table name="yp_module_news_tag">
+            <column name="id">37</column>
+            <column name="post_id">22</column>
+            <column name="tag">test</column>
+        </table>
+        <table name="yp_module_news_tag">
+            <column name="id">38</column>
+            <column name="post_id">22</column>
+            <column name="tag">test</column>
+        </table>
+        <table name="yp_module_news_tag">
+            <column name="id">39</column>
+            <column name="post_id">22</column>
+            <column name="tag">test</column>
+        </table>
+        <table name="yp_module_news_tag">
+            <column name="id">40</column>
+            <column name="post_id">22</column>
+            <column name="tag">test</column>
+        </table>
+        <!-- Table yp_sessions -->
+        <table name="yp_sessions">
+            <column name="hash">0f495cc3b79926c834a1faada2f88fe1</column>
+            <column name="last_time">1391926902</column>
+        </table>
+        <table name="yp_sessions">
+            <column name="hash">d609bff44f917da95a3cb40a4a16d2fa</column>
+            <column name="last_time">1391926960</column>
+        </table>
+        <!-- Table yp_settings -->
+        <table name="yp_settings">
+            <column name="setting">addthis</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">admin_fake_link</column>
+            <column name="value">cp</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">admin_language</column>
+            <column name="value">en</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">admin_template</column>
+            <column name="value">simple</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">admin_template_list</column>
+            <column name="value">a:3:{i:0;s:7:&quot;default&quot;;i:1;s:6:&quot;simple&quot;;i:2;s:13:&quot;simple - Copy&quot;;}</column>
+            <column name="serialized">1</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">allow_comment</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">cache</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">captcha_lenght</column>
+            <column name="value">4</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">comment_captcha</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">comment_disqus_active</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">comment_disqus_alias</column>
+            <column name="value">lvdcoder</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">comment_maxchars</column>
+            <column name="value">600</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">comment_minchars</column>
+            <column name="value">5</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">compression_level</column>
+            <column name="value">9</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">compress_html</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">compress_page</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">custom_route</column>
+            <column name="value">a:2:{i:0;a:4:{s:3:&quot;new&quot;;s:3:&quot;rss&quot;;s:5:&quot;route&quot;;s:8:&quot;News/Rss&quot;;s:6:&quot;delete&quot;;b:0;s:14:&quot;replace_to_new&quot;;b:1;}i:1;a:4:{s:3:&quot;new&quot;;s:11:&quot;sitemap.xml&quot;;s:5:&quot;route&quot;;s:12:&quot;News/Sitemap&quot;;s:6:&quot;delete&quot;;b:0;s:14:&quot;replace_to_new&quot;;b:1;}}</column>
+            <column name="serialized">1</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">debug</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">default_module</column>
+            <column name="value">News/Index</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">deny_if_none_useragent</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">download_path</column>
+            <column name="value">source/d.png</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">FACEBOOK_APP_ID</column>
+            <column name="value"></column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">facebook_login</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">FACEBOOK_SECRET</column>
+            <column name="value"></column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">fb_login</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">firewall</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">floodchecktime</column>
+            <column name="value">45</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">flood_check_time</column>
+            <column name="value">45</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">google_analytics_code</column>
+            <column name="value"></column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">google_login</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">language</column>
+            <column name="value">en</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">layouts</column>
+            <column name="value">a:4:{s:5:&quot;About&quot;;i:2;s:7:&quot;Contact&quot;;i:2;s:8:&quot;Download&quot;;i:4;s:4:&quot;News&quot;;i:1;}</column>
+            <column name="serialized">1</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">like_active</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">menu</column>
+            <column name="value">a:1:{s:8:&quot;top_menu&quot;;a:9:{i:0;a:4:{s:5:&quot;level&quot;;i:1;s:9:&quot;parent_id&quot;;i:0;s:4:&quot;text&quot;;s:4:&quot;Home&quot;;s:4:&quot;link&quot;;s:1:&quot;/&quot;;}i:1;a:4:{s:5:&quot;level&quot;;i:1;s:9:&quot;parent_id&quot;;i:0;s:4:&quot;text&quot;;s:4:&quot;News&quot;;s:4:&quot;link&quot;;s:10:&quot;News/Index&quot;;}i:2;a:4:{s:5:&quot;level&quot;;i:1;s:9:&quot;parent_id&quot;;i:0;s:4:&quot;text&quot;;s:8:&quot;Download&quot;;s:4:&quot;link&quot;;s:14:&quot;Download/Index&quot;;}i:3;a:4:{s:5:&quot;level&quot;;i:1;s:9:&quot;parent_id&quot;;i:0;s:4:&quot;text&quot;;s:7:&quot;Account&quot;;s:4:&quot;link&quot;;s:12:&quot;User/Account&quot;;}i:4;a:4:{s:5:&quot;level&quot;;i:1;s:9:&quot;parent_id&quot;;i:0;s:4:&quot;text&quot;;s:7:&quot;Contact&quot;;s:4:&quot;link&quot;;s:13:&quot;Contact/Index&quot;;}i:5;a:4:{s:5:&quot;level&quot;;i:2;s:9:&quot;parent_id&quot;;i:1;s:4:&quot;text&quot;;s:8:&quot;Category&quot;;s:4:&quot;link&quot;;s:8:&quot;News/Cat&quot;;}i:6;a:4:{s:5:&quot;level&quot;;i:2;s:9:&quot;parent_id&quot;;i:1;s:4:&quot;text&quot;;s:11:&quot;Newest Post&quot;;s:4:&quot;link&quot;;s:11:&quot;News/Newest&quot;;}i:7;a:4:{s:5:&quot;level&quot;;i:2;s:9:&quot;parent_id&quot;;i:2;s:4:&quot;text&quot;;s:15:&quot;Download Source&quot;;s:4:&quot;link&quot;;s:15:&quot;Download/Source&quot;;}i:8;a:4:{s:5:&quot;level&quot;;i:2;s:9:&quot;parent_id&quot;;i:2;s:4:&quot;text&quot;;s:17:&quot;Download Software&quot;;s:4:&quot;link&quot;;s:17:&quot;Download/Software&quot;;}}}</column>
+            <column name="serialized">1</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">modules</column>
+            <column name="value">a:4:{i:0;a:3:{s:3:&quot;dir&quot;;s:5:&quot;About&quot;;s:6:&quot;active&quot;;b:1;s:4:&quot;info&quot;;a:4:{s:11:&quot;module_name&quot;;s:5:&quot;About&quot;;s:7:&quot;version&quot;;s:3:&quot;1.0&quot;;s:6:&quot;author&quot;;s:6:&quot;System&quot;;s:4:&quot;date&quot;;s:10:&quot;01/07/2013&quot;;}}i:1;a:3:{s:3:&quot;dir&quot;;s:7:&quot;Contact&quot;;s:6:&quot;active&quot;;b:0;s:4:&quot;info&quot;;a:4:{s:11:&quot;module_name&quot;;s:7:&quot;Contact&quot;;s:7:&quot;version&quot;;s:3:&quot;1.0&quot;;s:6:&quot;author&quot;;s:6:&quot;System&quot;;s:4:&quot;date&quot;;s:10:&quot;01/07/2013&quot;;}}i:2;a:3:{s:3:&quot;dir&quot;;s:8:&quot;Download&quot;;s:6:&quot;active&quot;;b:0;s:4:&quot;info&quot;;a:4:{s:11:&quot;module_name&quot;;s:8:&quot;Download&quot;;s:7:&quot;version&quot;;s:3:&quot;1.0&quot;;s:6:&quot;author&quot;;s:6:&quot;System&quot;;s:4:&quot;date&quot;;s:10:&quot;01/07/2013&quot;;}}i:3;a:3:{s:3:&quot;dir&quot;;s:4:&quot;News&quot;;s:6:&quot;active&quot;;b:1;s:4:&quot;info&quot;;a:4:{s:11:&quot;module_name&quot;;s:4:&quot;News&quot;;s:7:&quot;version&quot;;s:3:&quot;1.0&quot;;s:6:&quot;author&quot;;s:6:&quot;System&quot;;s:4:&quot;date&quot;;s:10:&quot;01/07/2013&quot;;}}}</column>
+            <column name="serialized">1</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">module_About_active</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">module_Contact_active</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">module_Download_active</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">module_News_active</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">pageview</column>
+            <column name="value">6158</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">password_maxchars</column>
+            <column name="value">30</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">password_minchars</column>
+            <column name="value">5</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">postautosave</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">postmaxchars</column>
+            <column name="value">100000</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">post_request_type</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">quick_edit_post</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">register_active</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">rewrite</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">rss_content_maxchars</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">rss_max_post</column>
+            <column name="value">20</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">security_https</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">services_check_version_url</column>
+            <column name="value">http://ypcore-update.lemon9x.com/version/current_version.php</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">show_view_counter</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">site_description</column>
+            <column name="value">ypCore System is a blogging platform. Build in base fast and simple. Just enjoy it!</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">site_email</column>
+            <column name="value">duyet2000@gmail.com</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">site_keywork</column>
+            <column name="value">ypcore, news, tin tức, blog công nghệ</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">site_title</column>
+            <column name="value">ypCore CMS</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">site_title_construct</column>
+            <column name="value">#TITLE# · ypCore System</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">static_url</column>
+            <column name="value">http://localhost/ypCore_CDN</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">static_url_active</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">template</column>
+            <column name="value">default</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">template_list</column>
+            <column name="value">a:2:{i:0;s:7:&quot;default&quot;;i:1;s:6:&quot;twover&quot;;}</column>
+            <column name="serialized">1</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">titlemaxchars</column>
+            <column name="value">250</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">tmp</column>
+            <column name="value">/tmp</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">totaldraft</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">totalpost</column>
+            <column name="value">0</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">upload_dir</column>
+            <column name="value">/apps/upload</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">url_lowcase</column>
+            <column name="value">1</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">username_maxchars</column>
+            <column name="value">30</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">username_minchars</column>
+            <column name="value">5</column>
+            <column name="serialized">0</column>
+        </table>
+        <table name="yp_settings">
+            <column name="setting">version</column>
+            <column name="value">0.1.0</column>
+            <column name="serialized">0</column>
+        </table>
+        <!-- Table yp_stat -->
+        <table name="yp_stat">
+            <column name="day">9</column>
+            <column name="month">2</column>
+            <column name="year">2014</column>
+            <column name="value">2</column>
+        </table>
+        <!-- Table yp_usergroup -->
+        <table name="yp_usergroup">
+            <column name="groupid">1</column>
+            <column name="groupname">Member</column>
+            <column name="description"></column>
+        </table>
+        <table name="yp_usergroup">
+            <column name="groupid">2</column>
+            <column name="groupname">Moderation</column>
+            <column name="description"></column>
+        </table>
+        <table name="yp_usergroup">
+            <column name="groupid">3</column>
+            <column name="groupname">Supper Moderation</column>
+            <column name="description"></column>
+        </table>
+        <table name="yp_usergroup">
+            <column name="groupid">4</column>
+            <column name="groupname">Administrator</column>
+            <column name="description"></column>
+        </table>
+        <!-- Table yp_users -->
+        <table name="yp_users">
+            <column name="userid">5</column>
+            <column name="username">admin</column>
+            <column name="password">de9efea127212e7a9abadf6b717eeb56</column>
+            <column name="salt">7389AEEA88</column>
+            <column name="full_name"></column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="groupid">4</column>
+            <column name="birthday">0000-00-00</column>
+            <column name="register_day">2013-07-21 08:27:56</column>
+        </table>
+        <table name="yp_users">
+            <column name="userid">6</column>
+            <column name="username">cute_test</column>
+            <column name="password">d8586a864be4e608a7a3d76bec1b2ef9</column>
+            <column name="salt">2F4C2A704F</column>
+            <column name="full_name">Test</column>
+            <column name="email">just_test@gmail.com</column>
+            <column name="groupid">1</column>
+            <column name="birthday">0000-00-00</column>
+            <column name="register_day">2013-08-01 11:58:46</column>
+        </table>
+        <table name="yp_users">
+            <column name="userid">7</column>
+            <column name="username">google</column>
+            <column name="password">8e8edabd3686a86bf72bbffa28d0d7a0</column>
+            <column name="salt">7ADFCA2F2A</column>
+            <column name="full_name">Google.om</column>
+            <column name="email">googl@ggoo.com</column>
+            <column name="groupid">1</column>
+            <column name="birthday">0000-00-00</column>
+            <column name="register_day">2013-08-01 12:02:12</column>
+        </table>
+        <table name="yp_users">
+            <column name="userid">8</column>
+            <column name="username">admin</column>
+            <column name="password"></column>
+            <column name="salt">0E3E0FEE23</column>
+            <column name="full_name"></column>
+            <column name="email">duyet2000@gmail.com</column>
+            <column name="groupid">4</column>
+            <column name="birthday">0000-00-00</column>
+            <column name="register_day">2013-08-06 19:14:57</column>
+        </table>
+    </database>
+</pma_xml_export>

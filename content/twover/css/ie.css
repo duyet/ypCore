@@ -1,0 +1,2054 @@
+a {
+  cursor: pointer;
+}
+.container {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 940px;
+}
+.row {
+  display: table;
+  clear: both;
+  margin-left: 0;
+}
+.breadcrumb  {
+    padding: 8px 5px;
+	margin-bottom: 1px;
+}
+.breadcrumb li {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  text-shadow: 0 1px 0 #ffffff;
+  -moz-text-shadow: 0 1px 0 #ffffff;
+  -webkit-text-shadow: 0 1px 0 #ffffff;
+  padding: 4px;
+}
+.breadcrumb  li  .divider {
+  padding: 0 5px;
+  color: #ccc;
+}
+.breadcrumb  .active {
+  color: #999999;
+}
+.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 {
+  float: left;
+  min-height: 1px;
+  margin-left: 20px;
+} 
+.span12 {
+  width: 930px;
+}
+.span11 {
+  width: 850px;
+}
+.span10 {
+  width: 770px;
+}
+.span9 {
+  width: 690px;
+}
+.span8 {
+  width: 610px;
+}
+.span7 {
+  width: 530px;
+}
+.span6 {
+  width: 450px;
+}
+.span5 {
+  width: 370px;
+}
+.span4 {
+  width: 290px;
+}
+.span3 {
+  width: 210px;
+}
+.span2 {
+  width: 130px;
+}
+.span1 {
+  width: 50px;
+}
+.row-fluid .span1, .row-fluid .span2, .row-fluid .span3, .row-fluid .span4, .row-fluid .span5, .row-fluid .span6, .row-fluid .span7, .row-fluid .span8, .row-fluid .span9, .row-fluid .span10, .row-fluid .span11, .row-fluid .span12 {
+  display: block;
+  width: 100%;
+  min-height: 35px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  margin-left: 2.127659574468085%;
+  *margin-left: 2.074468085106383%;
+} 
+.row-fluid .span12 {
+  width: 100%;
+  *width: 99.94680851063829%;
+}
+.row-fluid .span11 {
+  width: 91.48936170212765%;
+  *width: 91.43617021276594%;
+}
+.row-fluid .span10 {
+  width: 82.97872340425532%;
+  *width: 82.92553191489361%;
+}
+.row-fluid .span9 {
+  width: 74.46808510638297%;
+  *width: 74.41489361702126%;
+}
+.row-fluid .span8 {
+  width: 65.95744680851064%;
+  *width: 65.90425531914893%;
+}
+.row-fluid .span7 {
+  width: 57.44680851063829%;
+  *width: 57.39361702127659%;
+}
+.row-fluid .span6 {
+  width: 48.93617021276595%;
+  *width: 48.88297872340425%;
+}
+.row-fluid .span5 {
+  width: 40.42553191489362%;
+  *width: 40.37234042553192%;
+}
+.row-fluid .span4 {
+  width: 31.914893617021278%;
+  *width: 31.861702127659576%;
+}
+.row-fluid .span3 {
+  width: 23.404255319148934%;
+  *width: 23.351063829787233%;
+}
+.row-fluid .span2 {
+  width: 14.893617021276595%;
+  *width: 14.840425531914894%;
+}
+.row-fluid .span1 {
+  width: 6.382978723404255%;
+  *width: 6.329787234042553%;
+}
+.row-fluid .offset12 {
+  margin-left: 104.25531914893617%;
+  *margin-left: 104.14893617021275%;
+}
+/****** INPUT *********/
+.input-text, .input-password {
+  display: inline-block;
+  height: 25px;
+  padding: 4px 6px;
+  margin-bottom: 12.5px;
+  font-size: 14px;
+  line-height: 25px;
+  color: #555555;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  vertical-align: middle;
+  width: 206px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+
+.input-text:focus, .input-password:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+.input-radio, .input-checkbox {
+  margin: 4px 0 0;
+  *margin-top: 0;
+  /* IE7 */
+
+  margin-top: 1px \9;
+  /* IE8-9 */
+
+  line-height: normal;
+}
+.input-checkbox, .input-file, .input-submit {
+  width: auto;
+}
+.input-file:focus, .input-radio:focus, .input-checkbox:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.input-file {
+  height: 35px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: 35px;
+}
+.controls  .radio:first-child,
+.controls  .checkbox:first-child {
+  padding-top: 5px;
+}
+/******* LOGIN *******/
+label.checkbox {
+  margin-top: 2px;
+}
+.form-signin {
+	margin: 40px 300px;
+}
+.form-signin .input-text, .form-signin .input-password {
+  width: 100%;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+.form-signin .checkbox { 
+  display: block;
+  height: 14px;
+  width: 100%;
+  line-height: 14px;
+  z-index: 2;
+  margin-left: 4px;
+  font-family: FontAwesome;
+}
+
+.login-error {
+	padding: 10px 10px 10px 10px;
+	margin-bottom: 15px;
+	color: #555555;
+	background-color: #f2dede;
+	border-color: #eed3d7;
+	color: #b94a48;
+}
+
+/****** REGISTER *******/
+.form-register  {
+  margin: 40px 300px;
+}
+.form-register .input-text, .form-register .input-password {
+  width: 100%;
+}
+
+/******* ICON ********/
+.icon-glass {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: 0      0;
+}
+.icon-music {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -24px 0;
+}
+.icon-search {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -48px 0;
+}
+.icon-envelope {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -72px 0;
+}
+.icon-heart {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -96px 0;
+}
+.icon-star {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -120px 0;
+}
+.icon-star-empty {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -144px 0;
+}
+.icon-user {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -168px 0;
+}
+.icon-film {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -192px 0;
+}
+.icon-th-large {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -216px 0;
+}
+.icon-th {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -240px 0;
+}
+.icon-th-list {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -264px 0;
+}
+.icon-ok {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -288px 0;
+}
+.icon-remove {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -312px 0;
+}
+.icon-zoom-in {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -336px 0;
+}
+.icon-zoom-out {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -360px 0;
+}
+.icon-off {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -384px 0;
+}
+.icon-signal {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -408px 0;
+}
+.icon-cog {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -432px 0;
+}
+.icon-trash {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -456px 0;
+}
+.icon-home {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: 0 -24px;
+}
+.icon-file {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -24px -24px;
+}
+.icon-time {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -48px -24px;
+}
+.icon-road {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -72px -24px;
+}
+.icon-download-alt {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -96px -24px;
+}
+.icon-download {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -120px -24px;
+}
+.icon-upload {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -144px -24px;
+}
+.icon-inbox {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -168px -24px;
+}
+.icon-play-circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -192px -24px;
+}
+.icon-repeat {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -216px -24px;
+}
+.icon-refresh {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -240px -24px;
+}
+.icon-list-alt {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -264px -24px;
+}
+.icon-lock {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -287px -24px;
+}
+.icon-flag {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -312px -24px;
+}
+.icon-headphones {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -336px -24px;
+}
+.icon-volume-off {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -360px -24px;
+}
+.icon-volume-down {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -384px -24px;
+}
+.icon-volume-up {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -408px -24px;
+}
+.icon-qrcode {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -432px -24px;
+}
+.icon-barcode {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -456px -24px;
+}
+.icon-tag {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: 0 -48px;
+}
+.icon-tags {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -25px -48px;
+}
+.icon-book {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -48px -48px;
+}
+.icon-bookmark {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -72px -48px;
+}
+.icon-print {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -96px -48px;
+}
+.icon-camera {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -120px -48px;
+}
+.icon-font {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -144px -48px;
+}
+.icon-bold {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -167px -48px;
+}
+.icon-italic {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -192px -48px;
+}
+.icon-text-height {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -216px -48px;
+}
+.icon-text-width {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -240px -48px;
+}
+.icon-align-left {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -264px -48px;
+}
+.icon-align-center {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -288px -48px;
+}
+.icon-align-right {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -312px -48px;
+}
+.icon-align-justify {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -336px -48px;
+}
+.icon-list {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -360px -48px;
+}
+.icon-indent-left {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -384px -48px;
+}
+.icon-indent-right {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -408px -48px;
+}
+.icon-facetime-video {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -432px -48px;
+}
+.icon-picture {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -456px -48px;
+}
+.icon-pencil {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: 0 -72px;
+}
+.icon-map-marker {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -24px -72px;
+}
+.icon-adjust {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -48px -72px;
+}
+.icon-tint {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -72px -72px;
+}
+.icon-edit {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -96px -72px;
+}
+.icon-share {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -120px -72px;
+}
+.icon-check {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -144px -72px;
+}
+.icon-move {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -168px -72px;
+}
+.icon-step-backward {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -192px -72px;
+}
+.icon-fast-backward {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -216px -72px;
+}
+.icon-backward {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -240px -72px;
+}
+.icon-play {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -264px -72px;
+}
+.icon-pause {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -288px -72px;
+}
+.icon-stop {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -312px -72px;
+}
+.icon-forward {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -336px -72px;
+}
+.icon-fast-forward {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -360px -72px;
+}
+.icon-step-forward {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -384px -72px;
+}
+.icon-eject {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -408px -72px;
+}
+.icon-chevron-left {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -432px -72px;
+}
+.icon-chevron-right {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -456px -72px;
+}
+.icon-plus-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: 0 -96px;
+}
+.icon-minus-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -24px -96px;
+}
+.icon-remove-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -48px -96px;
+}
+.icon-ok-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -72px -96px;
+}
+.icon-question-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -96px -96px;
+}
+.icon-info-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -120px -96px;
+}
+.icon-screenshot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -144px -96px;
+}
+.icon-remove-circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -168px -96px;
+}
+.icon-ok-circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -192px -96px;
+}
+.icon-ban-circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -216px -96px;
+}
+.icon-arrow-left {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -240px -96px;
+}
+.icon-arrow-right {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -264px -96px;
+}
+.icon-arrow-up {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -289px -96px;
+}
+.icon-arrow-down {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -312px -96px;
+}
+.icon-share-alt {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -336px -96px;
+}
+.icon-resize-full {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -360px -96px;
+}
+.icon-resize-small {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -384px -96px;
+}
+.icon-plus {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -408px -96px;
+}
+.icon-minus {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -433px -96px;
+}
+.icon-asterisk {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -456px -96px;
+}
+.icon-exclamation-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: 0 -120px;
+}
+.icon-gift {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -24px -120px;
+}
+.icon-leaf {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -48px -120px;
+}
+.icon-fire {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -72px -120px;
+}
+.icon-eye-open {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -96px -120px;
+}
+.icon-eye-close {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -120px -120px;
+}
+.icon-warning-sign {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -144px -120px;
+}
+.icon-plane {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -168px -120px;
+}
+.icon-calendar {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -192px -120px;
+}
+.icon-random {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -216px -120px;
+  width: 16px;
+}
+.icon-comment {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -240px -120px;
+}
+.icon-magnet {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -264px -120px;
+}
+.icon-chevron-up {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -288px -120px;
+}
+.icon-chevron-down {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -313px -119px;
+}
+.icon-retweet {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -336px -120px;
+}
+.icon-shopping-cart {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -360px -120px;
+}
+.icon-folder-close {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -384px -120px;
+}
+.icon-folder-open {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -408px -120px;
+  width: 16px;
+}
+.icon-resize-vertical {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -432px -119px;
+}
+.icon-resize-horizontal {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -456px -118px;
+}
+.icon-hdd {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: 0 -144px;
+}
+.icon-bullhorn {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -24px -144px;
+}
+.icon-bell {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -48px -144px;
+}
+.icon-certificate {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -72px -144px;
+}
+.icon-thumbs-up {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -96px -144px;
+}
+.icon-thumbs-down {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -120px -144px;
+}
+.icon-hand-right {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -144px -144px;
+}
+.icon-hand-left {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -168px -144px;
+}
+.icon-hand-up {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -192px -144px;
+}
+.icon-hand-down {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -216px -144px;
+}
+.icon-circle-arrow-right {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -240px -144px;
+}
+.icon-circle-arrow-left {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -264px -144px;
+}
+.icon-circle-arrow-up {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -288px -144px;
+}
+.icon-circle-arrow-down {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -312px -144px;
+}
+.icon-globe {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -336px -144px;
+}
+.icon-wrench {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -360px -144px;
+}
+.icon-tasks {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -384px -144px;
+}
+.icon-filter {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -408px -144px;
+}
+.icon-briefcase {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -432px -144px;
+}
+.icon-fullscreen {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../images/glyphicons-halflings.png");  
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  background-position: -456px -144px;
+}
+
+
+/* HEADER ----------------------*/
+#header {
+	height:85px; 
+	border-bottom: 1px solid #cbc9cf; 
+	background-color: #ffffff; 
+	position: relative;
+}
+#header .span3 {
+	width: 200px;
+}
+#logo {
+	width:150px; 
+	height:46px; 
+	margin-top:20px; 
+
+}
+#logo a {
+	width:168px; 
+	height:46px; 
+	float: left;
+}
+#top-nav-menu a {font-family: 'Open Sans', sans-serif;}
+#top-nav-menu {float: right; z-index:1000; margin-top:0px;}
+	#top-nav-menu ul {list-style:none;}
+		#top-nav-menu li {float:left; position: relative; margin-bottom:0;}
+			#top-nav-menu a {
+				padding: 34px 40px 25px 40px;
+				display: block;
+				text-align: center;
+				font-weight: normal;
+				z-index:1000;
+				position: relative;
+				text-transform: uppercase;
+				font-size:12px;
+				text-decoration: none;
+				color: #555555;
+				text-shadow:none;
+			}
+			#top-nav-menu a.current .dot.nav {
+				background-color:#3399cc;
+				border-color: #3399cc;
+			}
+
+
+		#top-nav-menu a.current {background: #fcfcfc; color: #3399cc; border-bottom:1px solid #3399cc;}
+		#top-nav-menu a:hover {background: #f5f5f5; color: #666666; border-bottom:1px solid #3399cc;}
+		#top-nav-menu a:hover .dot.nav { background-color:#3399cc; border-color:#3399cc; }
+		#top-nav-menu a:hover .dot.subnav {background-color:#3399cc; border-color:#3399cc;}
+
+
+			#top-nav-menu #nav-menu ul {
+					display: none; 
+					position: absolute; 
+					top:70px; 
+					width:202px;
+					left:-25px;
+					border-top:2px solid #3399cc;
+					z-index:2000;
+				}
+				#top-nav-menu #nav-menu ul li {
+					float: left;
+				}
+				#top-nav-menu #nav-menu li ul a {
+					float: left;
+					width: 160px;
+					padding: 10px 0px 10px 40px;
+					border-left:1px solid #cbc9cf;
+					border-right:1px solid #cbc9cf;
+					border-bottom:1px solid #cbc9cf;
+					border-top: none;
+					text-align:left;
+					background-color: #fcfcfc;
+					text-transform:none;
+				}
+				#top-nav-menu #nav-menu li ul a:hover { background-color: #ffffff;}
+				#top-nav-menu #nav-menu li ul a:first-child {border-bottom:1px solid #cbc9cf;}
+					#top-nav-menu #nav-menu ul ul {
+						top:-1px;
+						left:201px;
+						border-top:1px solid #cbc9cf;
+					}
+					#nav-menu li ul ul {
+						left:201px;
+						margin: 0;
+					}
+				#nav-menu li:hover ul ul, #nav-menu li:hover ul ul ul, #nav-menu li:hover ul ul ul ul{
+    				display:none;
+    			}
+    			#nav-menu li:hover ul, #nav-menu li li:hover ul, #nav-menu li li li:hover ul, #nav-menu li li li li:hover ul{
+    				display:block;
+				}
+				#nav-menu .more-items {position: absolute;right:15px;top: 10px;}
+
+.navbar-search {margin-top:8px;}
+.page-header {padding-bottom:0;}
+
+.dot {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+  	width: 8px;
+  	height: 8px;
+  	border: 1px solid #cbc9cf;
+  	background-color:#ffffff;
+  	display: inline-block;
+}
+.dot.nav {position: absolute;left:48%;bottom:-30px;}
+.dot.subnav {position: absolute;left:15px;top: 38%; /*background: #d2d2d2;*/}
+.box:hover .dot.promo { background-color:#3399cc; border-color: #3399cc; }
+.box:hover {border-color: #3399cc;}
+	.box h3 {text-align:center;}
+	.box .box-content {padding-top:10px; padding-bottom:10px;}
+		.box .readmore {display: block; margin-bottom:10px;}
+
+/* ----------------------------------------*/
+.box-cat ul.newest_post {
+	margin-top: 10px;
+}
+.box-cat .newest_post li{
+	margin-top: 0;
+	margin-bottom:0;
+	padding-bottom: 0;
+}
