@@ -1,0 +1,22 @@
+### YPCORE HTACCESS ###
+
+#Options -Indexes
+
+<FilesMatch "\.(log|htaccess)">
+ Order deny,allow
+ Deny from all
+</FilesMatch>
+
+Options -Indexes
+
+DirectoryIndex index.php
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css|php|mp3)
+RewriteRule ^(.+)$ index.php?_code_=$1 [QSA,L]
+
+### END YPCORE HTACCESS ###
