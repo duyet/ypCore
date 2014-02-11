@@ -18,6 +18,20 @@ Email: duyet2000@gmail.com
 
 This is an alpha pre-release of ypCore CMS. 
 
+### Function
+* Admin fake/custom folder.
+* Custom '''static''' file from order domain/subdomain.
+* Responsive themes for default front and admincp.
+* Simple Admin Setting.
+* Compress HTML, Template and caching.
+* System status and auto fix module.
+* Tools page on setting. 
+* Auto update with just one-click
+* Firewall anti DDOS, https enble.
+
+
+
+### Install
 1. Download Source.
  
 2. Unpack and upload to your directory.
