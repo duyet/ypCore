@@ -1,14 +1,26 @@
 <?php
+$root = pathinfo(__file__, PATHINFO_DIRNAME) . '/../';
+require($root . '/ypCore/helper/error.php');
+require_once ($root . 'settings.php');
+
+// Check if config.php exists
+if (file_exists ($root . APP_CONFIG_FILE)) {
+	noticePage('ypCore already install!!', 'Stop install!');
+}
+
 $lang = 'en';
-if(!isset($_GET['step']))
+
+$stepAccept = array('configuration', 'end', 'installdatabase', 'introduction', 'requirements');
+if(!isset($_GET['step']) OR !in_array($_GET['step'], $stepAccept)) 
     $step = 'introduction';
-else
+else {
     $step = basename($_GET['step']);
+}
 
-require_once('../settings.php');
-require_once('language/' . $lang . '.php');
-require_once('steps/' . $step . '.php');
 
+require_once ($root . 'install/language/' . $lang . '.php');
+require_once ($root . 'install/steps/' . $step . '.php');
+ 
 
 // -------------------------
 ?>
