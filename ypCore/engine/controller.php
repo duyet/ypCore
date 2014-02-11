@@ -23,6 +23,12 @@ abstract class ypController {
 	protected $_template_union = '';
 	public $_debug = array();
 
+	/**
+	 *  Construct define
+	 *  
+	 * @param ypRegistry $_registry
+	 * @return void 
+	 */
 	public function __construct(&$_registry) {
 		$this->_registry = $_registry;
 
@@ -30,7 +36,8 @@ abstract class ypController {
 		$this->_templateDir = APPS_TEMPLATE_DIR;
 
 		// Default 
-		$this->set('template_url', $this->Request->getSiteUrl() . '/' . APPS_TEMPLATE_DIR . '/' . $this->_templateName);
+		$this->set('template_url', $this->Request->getSiteUrl() . '/' . APPS_TEMPLATE_DIR . '/
+			' . $this->_templateName);
 		$this->set('site_url', $this->Request->getSiteUrl());
 		if ((boolean) $this->Setting->get('static_url_active')) {
 			$this->set('static_url', $this->Setting->get('static_url'));
@@ -45,23 +52,53 @@ abstract class ypController {
 		$this->set('IS_USER', $this->User->isLogin());
 	}
 
+	/**
+	 * Get from this class
+	 * 
+	 * @param  string $key
+	 * @return mixed
+	 */
 	public function __get($key) {
 		return $this->_registry->get($key);
 	}
 
+	/**
+	 * Set for this class
+	 * 
+	 * @param string $key
+	 * @param mixed $value
+	 */
 	public function __set($key, $value) {
 		$this->_registry->set($key, $value);
 	}
 
+	/**
+	 * Set value for data and template.
+	 * 
+	 * @param string $key
+	 * @param mixed $value
+	 */
 	public function set($key, $value) {
 		// $this->_data[$key] = $value; // Old version
 		$this->Template->set($key, $value);
 	}
 
+	/**
+	 * Get value from data store
+	 * 
+	 * @param  string $key
+	 * @return mixed 
+	 */
 	public function get($key) {
 		return $this->_data[$key];
 	}
 
+	/**
+	 * Load language from language file.
+	 * 
+	 * @param  string $group
+	 * @return boolean
+	 */
 	public function loadLanguage($group) {
 		$group = (string) $group;
 		$this->Language->load($group);
@@ -74,27 +111,62 @@ abstract class ypController {
 				$this->Template->set($key, $phrase);
 			}
 		}
+
+		return TRUE;
 	}
 
+	/**
+	 * Set template name to render. 
+	 * The second param to using for fix cache template.
+	 * 
+	 * @param string $path
+	 * @param string $cache
+	 */
 	public function setTemplate($path, $cache = '') {
 		 $this->_template = $path; // Old version
 		 $this->_template_union = $cache;
 	}
 
+	/**
+	 * Set template child
+	 * 
+	 * @param array $child
+	 */
 	public function setTemplateChild($child = array()) {
 		$this->_children = array_merge($this->_children, $child);
 	}
 
+	/**
+	 * Forward to re-Action
+	 * 
+	 * @param  string $route
+	 * @param  array  $args
+	 * @return ypAction
+	 */
 	protected function forward($route, $args = array()) {
 		return new ypAction($route, $args);
 	}
 
+	/**
+	 * Redirect to URL
+	 * 
+	 * @param  string  $url
+	 * @param  integer $status
+	 * @return void
+	 */
 	protected function redirect($url, $status = 302) {
 		header('Status: ' . $status);
 		header('Location: ' . str_replace(array('&amp;', "\n", "\r"), array('&', '', ''), $url));
 		exit();
 	}
 
+	/**
+	 * Compile child action.
+	 * 
+	 * @param  string $child
+	 * @param  array  $args
+	 * @return void
+	 */
 	protected function getChild($child, $args = array()) {
 		$action = new ypAction($child, $args);
 
@@ -118,10 +190,20 @@ abstract class ypController {
 		}
 	}
 
+	/**
+	 * Set output return.
+	 * 
+	 * @param string $output
+	 */
 	public function setOutput($output = '') { // fix #2
 		$this->_output = $output;
 	}
 
+	/**
+	 * Render template
+	 * 
+	 * @return string
+	 */
 	protected function render() {
 		foreach ($this->_children as $child) {
 			$this->Template->set(basename($child), $this->getChild($child));
