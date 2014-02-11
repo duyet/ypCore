@@ -62,13 +62,13 @@ define ('APP_LOG_DIR', APP_DIR . '/logs');
 define ('APP_BACKUP_DIR', APP_DIR . '/backup');
 
 // Download folder, may edit
-define ('APP_DOWNLOAD_DIR', APP_DIR . '/download');
+define ('APP_DOWNLOAD_DIR', 'content/downloads');
 
 // Class library folder, not edit
 define ('CORE_CLASS_DIR', YPCORE_DIR . '/class');
 
 // Apps view (template) folder, not edit
-define ('APPS_TEMPLATE_DIR', YPCORE_ROOT . '/content/');
+define ('APPS_TEMPLATE_DIR', 'content/themes');
 
 // Admin view (template) folder, not edit
 define ('ADMIN_TEMPLATE_DIR', YPCORE_ROOT . '/' . ADMIN_DIR . '/view/');
