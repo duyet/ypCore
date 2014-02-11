@@ -142,7 +142,7 @@ abstract class ypAdminController {
 		//extract($this->_data); // Old version
 		// require ($templatePath); // Old version
 
-		$this->_output = $this->Template->compile($templatePath);
+		$this->_output = $this->Template->compile($templatePath, md5($_SERVER['REQUEST_URI']));
 		return $this->_output;
 	}
 
