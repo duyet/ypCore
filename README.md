@@ -40,4 +40,4 @@ This is an alpha pre-release of ypCore CMS.
 
 4. Run http://your-site.com/index.php if install on root, or http://your-site.com/ypcore/index.php if in `ypcore` folder. You must redirect to /install/ page. Continue with there instruction.
 
-5. Testing and feed back me and bugs, your idea, love n' hate, ..... I love it :))
+5. Testing and feed back me and bugs, your idea, love n' hate, (https://github.com/ypCore/ypCore-0.1.0/issues/1) ..... I love it :))
