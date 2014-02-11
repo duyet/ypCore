@@ -20,6 +20,7 @@ abstract class ypController {
 	protected $_children = array();
 	protected $_data = array();
 	protected $_output;
+	protected $_template_union = '';
 	public $_debug = array();
 
 	public function __construct(&$_registry) {
@@ -75,8 +76,9 @@ abstract class ypController {
 		}
 	}
 
-	public function setTemplate($path) {
+	public function setTemplate($path, $cache = '') {
 		 $this->_template = $path; // Old version
+		 $this->_template_union = $cache;
 	}
 
 	public function setTemplateChild($child = array()) {
@@ -162,7 +164,7 @@ abstract class ypController {
 		//extract($this->_data); // Old version
 		// require ($templatePath); // Old version
 
-		$this->_output = $this->Template->compile($templatePath);
+		$this->_output = $this->Template->compile($templatePath, $this->_template_union);
 		return $this->_output;
 	}
 }

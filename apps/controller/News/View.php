@@ -101,7 +101,7 @@ class Controller_News_View extends ypController {
 			$this->set('quick_edit', TRUE);
 		}
 
-		$this->setTemplate('module/News/View.php');
+		$this->setTemplate('module/News/View.php', 'p' . $id);
 		$this->setTemplateChild(array(
 			'System/Header',
 			'System/Footer',

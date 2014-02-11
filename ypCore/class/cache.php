@@ -82,16 +82,6 @@ class __CACHE {
 	private function _fixKeyName($key) {
 		$key = trim((string) $key);
 		
-		$j = FALSE;
-		if (strpos($key, '*') !== FALSE) {
-			$j = TRUE;
-			$key = str_replace('*', '---REPLACE---', $key);
-		}
-		$key = preg_replace('/[^A-Z0-9\._-]/i', '', $key);
-		if ($j == TRUE) {
-			$key = str_replace('---REPLACE---', '*', $key);
-		}
-		
 		return md5($key);
 	}
 }

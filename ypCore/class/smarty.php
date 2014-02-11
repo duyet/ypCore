@@ -73,7 +73,7 @@ class __SMARTY {
 		$this->smarty->addTemplateDir($dir);
 	}
 
-	public function compile($template = '') {
+	public function compile($template = '', $cache = '') {
 		$view_template = '';
 		if (!empty($template)) {
 			$view_template = $template;
@@ -83,7 +83,7 @@ class __SMARTY {
 		}
 
 		if (file_exists($view_template)) {
-			return $this->smarty->fetch($view_template);
+			return $this->smarty->fetch($view_template, $cache);
 		} else {
 			trigger_error('Cannot render view without any template being assigned or file does not exist');
 		}

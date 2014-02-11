@@ -1,20 +1,22 @@
 <?php 
 class Model_News_Index extends ypModel {
 	public function loadPost($num_post = 10, $current_page = 1) {
-		// Load from cache
-		$cache = $this->Cache->get('postInIndex');
-		if ($cache) {
-			return $cache;
-		}
-
 		$num_post = (int) $num_post;
 		$page = (int) $current_page;
 		$start = ($page - 1) * $num_post;
+		$end = $start + $num_post;
+
+		// Load from cache
+		$cache = $this->Cache->get('postInIndex-' . $current_page);
+		if ($cache) {
+		//	return $cache;
+		}
+
 
 		$this->Db->query("SELECT * FROM `yp_module_news` 
 			WHERE `status` = 1
-			ORDER BY `post_id` DESC 
-			LIMIT $start, $num_post");
+			ORDER BY `post_date` DESC 
+			LIMIT $start, $end");
 		if ($this->Db->num_rows() == 0) {
 			return array();
 		}
@@ -25,7 +27,7 @@ class Model_News_Index extends ypModel {
 		}
 
 		// Set cache
-		$this->Cache->set('postInIndex', $data);
+		//$this->Cache->set('postInIndex-' . $current_page, $data);
 
 		return $data;
 	}
