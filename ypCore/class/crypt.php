@@ -1,4 +1,11 @@
 <?php 
+/**
+ * Crypt system.
+ *
+ * @since 0.1.0
+ * @author LvDuit <duyet2000@gmail.com>
+ * @package ypCore
+ */
 class __CRYPT {
 	private $_cryptType = 'md5';
 	public function __construct() {}

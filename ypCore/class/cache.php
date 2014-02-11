@@ -1,8 +1,21 @@
 <?php 
+/**
+ * Cache manager. 
+ *
+ * @since 0.1.0
+ * @author LvDuit <duyet2000@gmail.com>
+ * @package ypCore
+ */
 class __CACHE {
 	private $expire = 3600;
 	private $_data = array();
 
+	/**
+	 * Get cache by using cache key.
+	 * 
+	 * @param  string $key Key of cache.
+	 * @return mixed
+	 */
 	public function get($key) {
 		$key = $this->_fixKeyName($key);
 
@@ -36,6 +49,12 @@ class __CACHE {
 		return FALSE;
 	}
 
+	/**
+	 * Save cache to file.
+	 * 
+	 * @param string $key   Cache key.
+	 * @param mixed $value Everything that you can save.
+	 */
 	public function set($key, $value) {
 		$key = $this->_fixKeyName($key);
 
@@ -53,6 +72,12 @@ class __CACHE {
 		fclose($handle);
 	}
 	
+	/**
+	 * Delete cache from file.
+	 * 
+	 * @param  string $key Cache key.
+	 * @return boolean
+	 */
 	public function delete($key) {
 		$key = $this->_fixKeyName($key);
 
@@ -79,6 +104,12 @@ class __CACHE {
 		}
   	}
 	
+	/**
+	 * Get keyname file.
+	 * 
+	 * @param  string $key Key name.
+	 * @return string
+	 */
 	private function _fixKeyName($key) {
 		$key = trim((string) $key);
 		

@@ -1,12 +1,41 @@
 <?php
 require_once(YPCORE_ROOT . '/' . YPCORE_DIR . '/helper/error.php');
 
+/**
+ * Auto load class for all system.
+ *
+ * @since 0.1.0
+ * @author LvDuit <duyet2000@gmail.com>
+ * @package ypCore
+ */
 class __AUTOLOADER {
 	private static $_instance;
+
+	/**
+	 * Root dir of system to autoload
+	 * @var string
+	 */
 	protected $_rootDir = '.';
+
+	/**
+	 * Auto load logs.
+	 * 
+	 * @var array
+	 */
 	public $log = array();
+
+	/**
+	 * Is settup?
+	 * 
+	 * @var boolean
+	 */
 	protected $_setup = FALSE;
 
+	/**
+	 * Setup auto loader
+	 * @param  string $rootDir Define root dir autoload
+	 * @return void
+	 */
 	public function setupAutoloader($rootDir) {
 		if ($this->_setup) {
 			return;
@@ -28,6 +57,12 @@ class __AUTOLOADER {
 		spl_autoload_register(array($this, 'autoload'));
 	}
 
+	/**
+	 * Auto load main function
+	 * 
+	 * @param  string $class
+	 * @return boolean
+	 */
 	public function autoload($class) {
 		if (class_exists($class, FALSE) OR interface_exists($class, FALSE)) {
 			return TRUE;
@@ -47,6 +82,14 @@ class __AUTOLOADER {
 		return FALSE;
 	}
 
+	/**
+	 * Save log with any class loaded.
+	 * See $this->log;
+	 * 
+	 * @param  string $class
+	 * @param  string $file
+	 * @return void
+	 */
 	private function autoloadLog($class, $file) {
 		$this->log[] = array(
 			'class' => $class,
@@ -54,6 +97,13 @@ class __AUTOLOADER {
 			'time' => microtime(false));
 	}
 
+	/**
+	 * Convert class auto to file path.
+	 * All file was lower string.
+	 * 
+	 * @param  string $className
+	 * @return string            Path of file
+	 */
 	public function autoloaderClassToFile($className) {
 		if (preg_match('#^[^a-zA-Z0-9_]$#', $className)) {
 			return FALSE;
@@ -81,10 +131,20 @@ class __AUTOLOADER {
 		return $this->_rootDir . '/' . $fileName;
 	}
 
+	/**
+	 * Get root dir
+	 * 
+	 * @return string 	
+	 */
 	public function getRootDir() {
 		return $this->_rootDir;
 	}
 
+	/**
+	 * GEt instance.
+	 * 
+	 * @return object
+	 */
 	public static final function getInstance() {
 		if (!self::$_instance) {
 			self::$_instance = new self();
@@ -97,5 +157,3 @@ class __AUTOLOADER {
 		self::$_instance = $loader;
 	}
 }
-
-?>

@@ -1,17 +1,84 @@
 <?php 
+/**
+ * Database tools
+ *
+ * @since 0.1.0
+ * @author LvDuit <duyet2000@gmail.com>
+ * @package ypCore
+ */
 class __DATABASE {
 	private static $_instance;
 	private $_connection = false;
+	
+	/**
+	 * Database host name.
+	 * 
+	 * @var [type]
+	 */
 	private $_dbhost;
+
+	/**
+	 * Database user.
+	 * 
+	 * @var [type]
+	 */
 	private $_dbuser;
+
+	/**
+	 * Database password.
+	 * 
+	 * @var [type]
+	 */
 	private $_dbpass;
+
+	/**
+	 * Database name.
+	 * 
+	 * @var [type]
+	 */
 	private $_dbname;
+
+	/**
+	 * Remember last result.
+	 * 
+	 * @var boolean
+	 */
 	private $_lastResult = false;
+
+	/**
+	 * Fatal error.
+	 * 
+	 * @var boolean
+	 */
 	public $fatalError = false;
+
+	/**
+	 * Debugging mode.
+	 * 
+	 * @var boolean
+	 */
 	private $_debugMode = false;
+	
+	/**
+	 * Debug store
+	 * 
+	 * @var boolean
+	 */
 	private $_debugInfo = false;
+	
+	/**
+	 * Database extends, mysql or mysqli
+	 * 
+	 * @var string
+	 */
 	private $_ext;
-	public $_disconnectOnDescruct;
+
+	/**
+	 * Disconnect when on descruct
+	 * 
+	 * @var boolean
+	 */
+	public $_disconnectOnDescruct = TRUE;
 
 	public function __construct($databaseSetting) {
 		$this->_setup($databaseSetting);
@@ -23,6 +90,12 @@ class __DATABASE {
 		return $this;
 	}
 
+	/**
+	 * Settup database.
+	 * 
+	 * @param  array
+	 * @return void
+	 */
 	private function _setup($databaseSetting) {
 		$this->_dbhost = 'localhost';
 		if ($databaseSetting['host']) {
@@ -57,6 +130,11 @@ class __DATABASE {
 		$this->_disconnectOnDescruct = TRUE;
 	}
 
+	/**
+	 * Connect to mysql
+	 * 
+	 * @return void
+	 */
 	public function connect() {
 		$time = microtime(TRUE);
 		
@@ -95,6 +173,12 @@ class __DATABASE {
 		return $this->_connection;
 	}
 
+	/**
+	 * Return and print error if debug active.
+	 * 
+	 * @param  string $query
+	 * @return mixed
+	 */
 	private function fatalError($query) {
 		$this->fatalError = TRUE;
 		$error = $this->_ext == 'mysqli' ? mysqli_error($this->_connection) : mysql_error(); 
@@ -107,6 +191,13 @@ class __DATABASE {
 		}
 	}
 
+	/**
+	 * Query mySQL query.
+	 * 
+	 * @param  string  $query
+	 * @param  boolean $remember_result
+	 * @return resource
+	 */
 	public function query($query, $remember_result = TRUE) {
 		if($this->_connection == FALSE) {
 			$this->connect();
@@ -136,10 +227,23 @@ class __DATABASE {
 		return $result;
 	}
 
+	/**
+	 * Short function of this::query()
+	 * 
+	 * @param  string  $query
+	 * @param  boolean $remember_result
+	 * @return resource
+	 */
 	public function q($query, $remember_result = TRUE) {
 		return $this->query($query, $remember_result);
 	}
 
+	/**
+	 * Fetch data and return object result.
+	 *  
+	 * @param  resource $result
+	 * @return object
+	 */
 	public function fetch_object($result = FALSE) {
 		$result = ($result !== FALSE) ? $result : $this->_lastResult;
 		if($result == FALSE) {
@@ -153,6 +257,16 @@ class __DATABASE {
 		return mysql_fetch_object($result);
 	}
 
+	/**
+	 * Fetch result multi type response.
+	 * 	$type = 1: Return array result with number index.
+	 *  $type = 2: Return array result with assoc index.
+	 *  $type = 3: Both 1 and 2
+	 * 
+	 * @param  boolean $result 
+	 * @param  integer $type   
+	 * @return mixed          
+	 */
 	public function fetch($result = FALSE, $type = 2) {
 		$result = ($result !== FALSE) ? $result : $this->_lastResult;
 		if($result == FALSE) {
@@ -169,6 +283,12 @@ class __DATABASE {
 		return false;
 	}
 
+	/**
+	 * Fetch assoc
+	 * 
+	 * @param  resource $result 
+	 * @return mixed
+	 */
 	public function fetchAssoc($result = FALSE) {
 		$result = ($result !== FALSE) ? $result : $this->_lastResult;
 		if($result == FALSE) {
@@ -180,10 +300,22 @@ class __DATABASE {
 		return false;
 	}
 
+	/**
+	 * Fetch object, short function of this::fetch_object()
+	 * 
+	 * @param  resource $result 
+	 * @return object
+	 */
 	public function fetchObject($result=FALSE) {
 		return $this->fetch_object($result);
 	}
 
+	/**
+	 * Fetch all return row
+	 * 
+	 * @param  resource $res
+	 * @return array of object
+	 */
 	public function fetch_all($res = FALSE) {
 		$result = ($result !== FALSE) ? $result : $this->_lastResult;
 		if($result == FALSE) {
@@ -198,6 +330,12 @@ class __DATABASE {
 		return $data;
 	}
 
+	/**
+	 * Fetch field
+	 * 
+	 * @param  [type] $query [description]
+	 * @return [type]        [description]
+	 */
 	public function fetch_field($query) {
 		$result = $this->query($query, FALSE);
 		if (FALSE == $result) {
@@ -216,6 +354,12 @@ class __DATABASE {
 		return $row[0];
 	}
 
+	/**
+	 * Number of row
+	 * 
+	 * @param  resource $result
+	 * @return int
+	 */
 	public function num_rows($result = FALSE) {
 		$result = ($result !== FALSE) ? $result : $this->_lastResult;
 		if($result == FALSE) {
@@ -229,6 +373,11 @@ class __DATABASE {
 		return mysql_num_rows($result);
 	}
 
+	/**
+	 * Return ID of query INSERT
+	 * 
+	 * @return int
+	 */
 	public function insert_id() {
 		if($this->_connection == FALSE) {
 			$this->connect();
@@ -240,6 +389,11 @@ class __DATABASE {
 		return intval(mysql_insert_id($this->_connection));
 	}
 
+	/**
+	 * Return ID of query INSERT, short function of this::insert_id()
+	 * 
+	 * @return int
+	 */
 	public function insertID() {
 		return $this->insert_id();
 	}

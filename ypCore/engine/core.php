@@ -21,6 +21,13 @@ class ypCore {
 		$this->_setupSystem();
 	}
 
+	/**
+	 * Run front system. 
+	 * First, get start time, parse code from URL. Fix it and modify admin hide link.
+	 * Custom and direct route. Get action and output.
+	 * 
+	 * @return void
+	 */
 	public function run() {
 		// Start time
 		define('START_TIME', microtime(TRUE));
@@ -107,10 +114,21 @@ class ypCore {
 		$response->output(); 
 	}
 
+	/**
+	 * Set pre Action
+	 * 
+	 * @param string $preAction 
+	 */
 	public function addPreAction($preAction) {
 		$this->preAction[] = $preAction;
 	}
 
+	/**
+	 * Execute action, require file path and run class auto.
+	 * 
+	 * @param  ypAction $action 
+	 * @return ypAction
+	 */
 	private function _execute($action) {
 		if (!is_object($action)) return FALSE;
 
@@ -137,6 +155,11 @@ class ypCore {
 		return $action;
 	}
 	
+	/**
+	 * Setup system. Check attach and protect system 
+	 * 
+	 * @return void 
+	 */
 	private function _setupSystem() {
 		// Check if none user agent
 		$denyIfNoneUseragent = $this->Setting->get('deny_if_none_useragent');

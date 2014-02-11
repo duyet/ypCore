@@ -1,8 +1,16 @@
 <?php 
+/**
+ * Cookie manager.
+ *
+ * @since 0.1.0
+ * @author LvDuit <duyet2000@gmail.com>
+ * @package ypCore
+ */
 class __COOKIE {
 	private static $_instance;
 	public $now;
 	private $_cookiePrefix = '';
+	public $expire;
 	
 	public function __construct() {
 		$this->now = time();
@@ -26,6 +34,17 @@ class __COOKIE {
 		return $_COOKIE[$name];
 	}
 
+	/**
+	 * Setup cookie 
+	 * 
+	 * @param string  $name     [description]
+	 * @param string  $value    [description]
+	 * @param integer $expire   [description]
+	 * @param boolean $path     [description]
+	 * @param boolean $domain   [description]
+	 * @param boolean $secure   [description]
+	 * @param boolean $httponly [description]
+	 */
 	public function set($name, $value = '', $expire = 0, $path= FALSE, $domain = FALSE, $secure = FALSE, $httponly = FALSE) {
 		$name = $this->_cookieName($name);
 		if ($expire != 0) {
@@ -36,6 +55,21 @@ class __COOKIE {
 		return setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
 	}
 
+	/**
+	 * Set expire.
+	 * 
+	 * @param integer $expire [description]
+	 */
+	public function setExpire($expire = 0) {
+		$this->expire = $expire;
+	}
+
+	/**
+	 * Delete cookie.
+	 * 
+	 * @param  string $name 
+	 * @return void
+	 */
 	public function delete($name) {
 		$name = $this->_cookieName($name);
 
@@ -45,6 +79,12 @@ class __COOKIE {
 		}
 	}
 
+	/**
+	 * Fix and get cookie name
+	 * 
+	 * @param  sting $name
+	 * @return string 		
+	 */
 	private function _cookieName($name) {
 		$name = strval($name);
 		$prefix = substr(md5($name), 0, 5);
