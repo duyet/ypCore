@@ -36,13 +36,15 @@ class Model_News_View extends ypModel {
 	
 	public function loadPostIdFromAlias($alias) {
 		$alias = preg_replace('/^[^A-z0-9-_.]+$/', '', $alias);
-		$this->Db->query("SELECT * FROM `yp_module_news` 
+		$this->Db->query("SELECT `post_id` FROM `yp_module_news` 
 		WHERE `title_alias` = '". $this->Db->e($alias) ."'");
 
 		if ($this->Db->num_rows() == 0) {
 			return FALSE;
 		}
 
-		return $this->Db->fetch();
+		$data = $this->Db->fetch();
+
+		return (int) $data['post_id'];
 	}
 }
