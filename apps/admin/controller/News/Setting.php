@@ -61,7 +61,7 @@ class Controller_Admin_News_Setting extends ypAdminController {
 		$lang = 'vi-VN'; // 'en-Us'
 		$cid = !$show_everage_value ? 'TIMESERIES_GRAPH_0' : 'TIMESERIES_GRAPH_AVERAGES_CHART';
 
-		$this->GoogleTrendScript = '<script type="text/javascript" src="//www.google.com/trends/embed.js?hl=' . $lang . '&q=' . $keyword . '&cmpt=q&content=1&cid=' . $cid . '&export=5&w=' . $width . '&h=' . $height . '"></script>';
+		$this->GoogleTrendScript = '<script type="text/javascript" src="//www.google.com/trends/embed.js?hl=' . $lang . '&q=' . $keyword . '&date3-month&cmpt=q&content=1&cid=' . $cid . '&export=5&w=' . $width . '&h=' . $height . '"></script>';
 
 	//	die($this->GoogleTrendScript . "\n\n\n" . '<script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=can&cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=500&h=330"></script>');
 
@@ -100,7 +100,7 @@ class Controller_Admin_News_Setting extends ypAdminController {
 			$data['rss_content_maxchars'] = (int) $this->Request->POST('rss_content_maxchars');
 			$data['rss_max_post'] = (int) $this->Request->POST('rss_max_post');
 
-			$this->Loader->model('Admin/Module/News/Setting');
+			$this->Loader->model('Admin/News/Setting');
 			$this->Model_Admin_Module_News_Setting->saveSetting($data);
 			// Clean cache
 			$this->Cache->delete('category_*');
@@ -114,7 +114,7 @@ class Controller_Admin_News_Setting extends ypAdminController {
 		$this->setTemplateChild(array(
 			'Admin/System/Header', 
 			'Admin/System/Footer',
-			'Admin/Module/News/Setting/LeftColumn'
+			'Admin/News/Setting/Leftcolumn'
 		));
 		$this->Response->setOutput($this->render());
 	}
