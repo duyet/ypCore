@@ -49,8 +49,12 @@ class Model_News_Index extends ypModel {
 		$post['post_date_text'] = date('d M Y', $post['post_date']);
 		$post['post'] = htmlspecialchars_decode((string) $post['post']);
 
-		if ($this->Setting->get('news_view_request_type', 'string') == 'alias')
-			$post['post_link'] = $this->Link->build('News/View', FALSE, array('alias' => trim($post['title_alias']) . '/'));
+		if ($this->Setting->get('news_view_request_type', 'string') == 'alias') {
+			if ($this->Link->rewrite) 
+				$post['post_link'] = $this->Link->build('news/' . trim($post['title_alias']) . '/', FALSE);
+			else 
+				$post['post_link'] = $this->Link->build('News/View', FALSE, array('alias' => trim($post['title_alias']) . '/'));
+		}
 		elseif ($this->Setting->get('news_view_request_type', 'string') == 'both')
 			$post['post_link'] = $this->Link->build('News/View', FALSE, array('id' => $post['post_id'], 'alias' => trim($post['title_alias']) . '/'));
 		else

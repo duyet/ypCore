@@ -12,8 +12,8 @@ class __LINK {
 		$this->_registry = $registry;
 		$this->path = $this->Request->baseSiteurl;
 		$this->site_url = $this->Request->siteUrl;
-		$this->lowcase = (boolean) $this->Setting->get('url_lowcase');
-		$this->rewrite = (boolean) $this->Setting->get('rewrite');
+		$this->lowcase = $this->Setting->get('url_lowcase', 'bool');
+		$this->rewrite = $this->Setting->get('rewrite', 'bool');
 		$this->params = $this->loadParams();
 		$this->code = $this->Request->GET[CODE_PARAM];
 	}
