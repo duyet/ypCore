@@ -20,7 +20,6 @@ abstract class ypController {
 	protected $_children = array();
 	protected $_data = array();
 	protected $_output;
-	protected $_template_union = '';
 	public $_debug = array();
 
 	/**
@@ -120,11 +119,9 @@ abstract class ypController {
 	 * The second param to using for fix cache template.
 	 * 
 	 * @param string $path
-	 * @param string $cache
 	 */
-	public function setTemplate($path, $cache = '') {
+	public function setTemplate($path) {
 		 $this->_template = $path; // Old version
-		 $this->_template_union = $cache;
 	}
 
 	/**
@@ -246,7 +243,7 @@ abstract class ypController {
 		//extract($this->_data); // Old version
 		// require ($templatePath); // Old version
 
-		$this->_output = $this->Template->compile($templatePath, $this->_template_union);
+		$this->_output = $this->Template->compile($templatePath, md5($_SERVER['REQUEST_URI'])); // Fix loi cache khi cac trang co dang  /?id=123
 		return $this->_output;
 	}
 }

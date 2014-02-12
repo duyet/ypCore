@@ -30,7 +30,7 @@ class Controller_News_Index extends ypController {
 
 		$this->Document->setTitle($this->_data['title']);
 		if ($currentPage > 1) $this->Document->setTitle($this->_data['title'] . ' - Page ' . $currentPage);
-		$this->setTemplate('module/News/Index.php', md5($_SERVER['REQUEST_URI']));
+		$this->setTemplate('module/News/Index.php');
 		$this->setTemplateChild(array(
 			'System/Header',
 			'System/Footer',
