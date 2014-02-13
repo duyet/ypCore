@@ -56,7 +56,7 @@ abstract class ypAdminController {
 		$this->Language->load($group);
 		if ($this->Language->phrase) {
 			// Load language to _data
-			//$this->_data = array_merge($this->_data, $this->Language->phrase);
+			$this->_data = array_merge($this->_data, $this->Language->phrase);
 			
 			// Load language to template
 			foreach($this->Language->phrase as $key => $phrase) {

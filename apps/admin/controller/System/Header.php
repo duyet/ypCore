@@ -3,10 +3,7 @@ class Controller_Admin_System_Header extends ypAdminController {
 	public function Index() {
 		$this->loadLanguage('Admin/System/Header');
 
-		$this->set('title', '');
-		if ($this->Document->getTitle() != '') {
-			$this->set('title', $this->Document->getTitle());
-		}
+		$this->set('admin_title', $this->Document->getTitle());
 
 		$this->set('description', '');
 		if ($this->Document->getDescription() != '') {

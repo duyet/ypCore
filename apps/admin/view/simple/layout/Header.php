@@ -4,7 +4,7 @@
     <head>
       <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-      <title>{$title}</title>
+      <title>{$admin_title}</title>
       <meta name="HandheldFriendly" content="True">
       <meta name="MobileOptimized" content="120">
       <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">    
