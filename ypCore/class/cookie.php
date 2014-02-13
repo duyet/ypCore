@@ -46,6 +46,13 @@ class __COOKIE {
 	 * @param boolean $httponly [description]
 	 */
 	public function set($name, $value = '', $expire = 0, $path= FALSE, $domain = FALSE, $secure = FALSE, $httponly = FALSE) {
+		if (is_array($name)) {
+			foreach($name as $cookieName => $cookieValue) {
+				$this->set($cookieName, $cookieValue);
+			}
+			return TRUE;
+		}
+
 		$name = $this->_cookieName($name);
 		if ($expire != 0) {
 			$expire = $this->now + (int)$expire;

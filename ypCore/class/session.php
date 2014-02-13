@@ -34,6 +34,13 @@ class __SESSION {
 	}
 
 	public function set($sessionName, $sessionValue = '', $cryptSession = false) {
+		if (is_array($sessionName)) {
+			foreach ($sessionName as $nameSession => $valueSession) {
+				$this->set($nameSession, $valueSession);
+			}
+
+			return TRUE;
+		}
 		$sessionName = $this->_sessionName($sessionName);
 		if ($cryptSession) $sessionValue = $this->cryptSession($sessionValue);
 		$this->_sessionName[] = $sessionName;
