@@ -57,4 +57,19 @@ class __CRYPT {
 
 		return substr($salt, 0, $lenght);
 	}
+
+	/**
+	 * Get user hash for session login
+	 * 
+	 * @param  string $username 
+	 * @param  integer $time   
+	 * @param  string  $client 
+	 * @param string $isAdmin
+	 * @return string        
+	 */
+	public function getUserSessionHash($username = '', $time = 0, $client = '', $isAdmin = 'false') {
+		if ($time == 0) $time = time();
+
+		return $this->hash($userid .  $client . $isAdmin . 'ypcore' . COOKIE_PREFIX);
+	}
 }

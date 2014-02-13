@@ -9,11 +9,14 @@ class __USER {
 		
 		$this->set('isLogin', FALSE);
 		$this->set('isAdmin', FALSE);
+
+		$this->set('userHashKey', '');
 			
 		if ($this->_isLogin()) {
 			$this->set('isLogin', TRUE);
 			$this->set('user_info', $this->_getUserInfo());
 			$this->set('isAdmin', $this->_isAdmin());
+			$this->set('userHashKey', $this->_getUserHashKey());
 		}
 	}
 	
@@ -26,62 +29,51 @@ class __USER {
 	}
 	
 	private function _isLogin() {
-		$userName_session = $this->Session->get('userName');
-		$userLoginHash_session = $this->Session->get('userLoginHash');
-		$isLogin = (boolean) $this->Session->get('isLogin');
-		if ($isLogin AND !empty($userName_session)) {
-			if ($this->Crypt->userLoginInfoDecode($userLoginHash_session) == $userName_session) {
-				$username = $userName_session;
-			} else {
-				$userName_cookie = $this->Cookie->get('userName');
-				$userLoginHash_cookie = $this->Cookie->get('userLoginHash');
-				if (!empty($userName_cookie)) {
-					if ($this->Crypt->userLoginInfoDecode($userLoginHash_cookie) == $userName_cookie) {
-						$username = $userName_cookie;
-					} else {
-						return FALSE;
-					}
-				}
-			}
-		}
+		$username = $this->Session->get('username');
+		$time_login = $this->Session->get('time_login');
+		$client = $this->Session->get('client');
+		$isAdmin = $this->Session->get('isAdmin');
+		$hashkey = $this->Session->get('hashkey');
 
-		if (empty($username)) {
+		if ($hashkey != $this->Crypt->getUserSessionHash($username, $time_login, $client, $isAdmin)) {
 			return FALSE;
 		}
-		$this->Loader->helper('Email');
-		if (isEmail($username)) {
-			$this->Db->query("SELECT `userid` FROM `yp_users` 
-			WHERE `email` = '". $this->Db->e($username) . "'");
-		} else {
-			$this->Db->query("SELECT `userid` FROM `yp_users` 
-			WHERE `username` = '". $this->Db->e($username) . "'");
+
+		// Check from database
+		$this->Db->query("SELECT * FROM `yp_sessions`
+			WHERE `username` = '". $this->Db->e($username) ."'
+				AND `client` = '". $this->Db->e($client) ."'
+				AND `is_admin` = '". $this->Db->e($isAdmin) ."'
+				AND `hash` = '". $this->Db->e($hashkey) ."'");
+
+		if ($this->Db->num_rows() > 0) {
+			return TRUE; // is login
 		}
-		if ($this->Db->num_rows() == 0) {
-			$this->Session->delete('userName');
-			$this->Session->delete('userLoginHash');
-			$this->Session->set('isLogin', FALSE);
-			$this->Cookie->delete('userName');
-			$this->Cookie->delete('userLoginHash');
+
+		// And not? Check in cookie
+		// Khong duoc? Kiem tra bang cookie
+		$username = $this->Cookie->get('username');
+		$time_login = $this->Cookie->get('time_login');
+		$client = $this->Cookie->get('client');
+		$isAdmin = $this->Cookie->get('isAdmin');
+		$hashkey = $this->Cookie->get('hashkey');
+
+		if ($hashKey != $this->Crypt->getUserSessionHash($username, $time_login, $client, $isAdmin)) {
 			return FALSE;
 		}
-		$result = $this->Db->fetch();
 
-		if (!$userName_session) {
-			$this->Session->set('isLogin', TRUE);
-			$this->Session->set('userName', $userName_cookie);
-			$this->Session->set('userLoginHash', $userLoginHash_cookie);
+		// Check from database
+		$this->Db->query("SELECT * FROM `yp_sessions`
+			WHERE `username` = '". $this->Db->e($username) ."'
+				AND `client` = '". $this->Db->e($client) ."'
+				AND `is_admin` = '". $this->Db->e($isAdmin) ."'
+				AND `hash` = '". $this->Db->e($hashkey) ."'");
+
+		if ($this->Db->num_rows() > 0) {
+			return TRUE; // is login
 		}
 
-		if (isset($userName_cookie) AND $userName_cookie != $userName_session) {
-			if ($userLoginHash_cookie != $userLoginHash_session) {
-				$this->Cookie->set('userLoginHash', $userLoginHash_session, self::COOKIE_MAX_TIME);
-			}
-			$this->Cookie->set('userName', $userName_session, self::COOKIE_MAX_TIME);
-		}
-
-		$this->set('username', $username);
-		$this->set('userid', $result['userid']);
-		return TRUE;
+		return FALSE;
 	}
 	
 	public function isLogin() {
@@ -89,12 +81,39 @@ class __USER {
 	}
 	
 	private function _isAdmin() {
-		$userInfo = $this->getUserInfo();
-		if ($userInfo AND $userInfo['groupid'] == 4) {
+		if (!$this->isLogin()) {
+			return FALSE;
+		}
+
+		// Check in session
+		if ($this->Session->get('isAdmin') == 'true') {
+			return TRUE;
+		}
+
+		// Check in cookie
+		if ($this->Cookie->get('isAdmin') == 'true') {
 			return TRUE;
 		}
 
 		return FALSE;
+	}
+
+	private function _getUserHashKey() {
+		if (!$this->isLogin()) {
+			return '';
+		}
+
+		// Check in session
+		if ($this->Session->get('hashkey') != '') {
+			return $this->Session->get('hashkey');
+		}
+
+		// Check in cookie
+		if ($this->Cookie->get('hashkey') != '') {
+			return $this->Cookie->get('hashkey');
+		}
+
+		return '';
 	}
 
 	public function isAdmin() {

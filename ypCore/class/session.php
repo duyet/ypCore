@@ -58,6 +58,14 @@ class __SESSION {
 	}
 	
 	public function delete($sessionName) {
+		if (is_array($sessionName)) {
+			foreach ($sessionName as $session) {
+				$this->delete($session);
+			}
+
+			return TRUE;
+		}
+
 		$sessionName = $this->_sessionName($sessionName);
 		if(isset($_SESSION["$sessionName"])) $_SESSION["$sessionName"] = null;
 		session_unset("$sessionName");

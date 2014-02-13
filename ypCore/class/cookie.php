@@ -78,6 +78,14 @@ class __COOKIE {
 	 * @return void
 	 */
 	public function delete($name) {
+		if (is_array($name)) {
+			foreach ($name as $key) {
+				$this->delete($key);
+			}
+
+			return TRUE;
+		}
+		
 		$name = $this->_cookieName($name);
 
 		$this->set($name, '');
