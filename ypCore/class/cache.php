@@ -7,8 +7,22 @@
  * @package ypCore
  */
 class __CACHE {
+	public static $_instance;
 	private $expire = 3600;
 	private $_data = array();
+
+	/**
+	 * Get instance for static call
+	 * 
+	 * @return 
+	 */
+	public static function getInstance() {
+		if (!self::$_instance) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
 
 	/**
 	 * Get cache by using cache key.
