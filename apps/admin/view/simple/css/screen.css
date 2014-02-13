@@ -930,7 +930,7 @@ nav li {
   box-sizing: border-box;
   background: url(../img/yplogo-black.png) no-repeat center center;
   opacity: 0.5;
-  border-right: 1px solid #999; }
+  border-right: 1px solid #E0E0E0; }
   .logo:hover {
     text-decoration: none;
     opacity: 0.8}
@@ -1751,6 +1751,7 @@ nav li {
 .modal-body {
   position: relative;
   min-height: 100px;
+  height: 300px;
   overflow-y: auto; }
 
 .modal-footer {
@@ -2260,7 +2261,6 @@ form input[type="datetime-local"],
 }  
 form textarea {
   width: 100%;
-  max-width: 340px;
   min-width: 250px;
   height: auto;
   min-height: 80px; }
@@ -3102,6 +3102,28 @@ input[type="reset"] {
 .editor .entry-markdown {
   left: 0;
   border-right: #edece4 2px solid; }
+.editor .head-param {
+  margin-bottom: 8px;
+  height: 40px;
+}
+.editor .head-param .section {
+  display: block;
+  max-width: 200px;
+  float: left;
+  padding-bottom: 10px;
+  margin: 2px;
+}
+.editor .head-param .rightside {
+  display: block;
+  float: left;
+  padding-bottom: 10px;
+  margin: 2px;
+  float: right !important;
+  max-width: 400px !important;
+}
+.editor .head-param .section input[type="text"] {
+  padding: 6px;
+}
 .editor .entry-preview {
   right: 0;
   border-left: #edece4 2px solid; }
@@ -5410,6 +5432,16 @@ padding: 0;
   margin: 1em 0px;
   padding-left: 100px;
 }
+.modal-body .form-group .pub-date {
+
+}
+.modal-body .form-group input#pub-date {
+  width: 100px;
+}
+.modal-body .form-group input#pub-time {
+  width: 80px;
+  margin-left: 3px;
+}
 .modal-body .form-group label {
   width: auto;
 }
@@ -5434,7 +5466,7 @@ padding: 0;
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
+   /** width: 600px; **/
     margin: 30px auto;
   }
   .modal-content {

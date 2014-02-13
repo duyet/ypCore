@@ -1,0 +1,265 @@
+.md-editor>.md-preview {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+  background-color: #fff;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+.md-editor>.md-preview a {
+  background: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+.md-editor>.md-preview abbr[title] {
+  border-bottom: 1px dotted;
+}
+.md-editor>.md-preview b,
+.md-editor>.md-preview strong {
+  font-weight: bold;
+}
+.md-editor>.md-preview dfn {
+  font-style: italic;
+}
+.md-editor>.md-preview h1 {
+  margin: .67em 0;
+  font-size: 2em;
+}
+.md-editor>.md-preview mark {
+  color: #000;
+  background: #ff0;
+}
+.md-editor>.md-preview small {
+  font-size: 80%;
+}
+.md-editor>.md-preview sub,
+.md-editor>.md-preview sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+.md-editor>.md-preview sup {
+  top: -.5em;
+}
+.md-editor>.md-preview sub {
+  bottom: -.25em;
+}
+.md-editor>.md-preview img {
+  border: 0;
+}
+.md-editor>.md-preview svg:not(:root) {
+  overflow: hidden;
+}
+.md-editor>.md-preview figure {
+  margin: 1em 40px;
+}
+.md-editor>.md-preview hr {
+  height: 0;
+  -moz-box-sizing: content-box;
+       box-sizing: content-box;
+}
+.md-editor>.md-preview pre {
+  overflow: auto;
+}
+.md-editor>.md-preview code,
+.md-editor>.md-preview kbd,
+.md-editor>.md-preview pre,
+.md-editor>.md-preview samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+.md-editor>.md-preview button,
+.md-editor>.md-preview input,
+.md-editor>.md-preview optgroup,
+.md-editor>.md-preview select,
+.md-editor>.md-preview textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+.md-editor>.md-preview button {
+  overflow: visible;
+}
+.md-editor>.md-preview button,
+.md-editor>.md-preview select {
+  text-transform: none;
+}
+.md-editor>.md-preview button,
+.md-editor>.md-preview input[type="button"],
+.md-editor>.md-preview input[type="reset"],
+.md-editor>.md-preview input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+.md-editor>.md-preview button[disabled],
+.md-editor>.md-preview  input[disabled] {
+  cursor: default;
+}
+.md-editor>.md-preview button::-moz-focus-inner,
+.md-editor>.md-preview input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+.md-editor>.md-preview input {
+  line-height: normal;
+}
+.md-editor>.md-preview input[type="checkbox"],
+.md-editor>.md-preview input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+.md-editor>.md-preview input[type="number"]::-webkit-inner-spin-button,
+.md-editor>.md-preview input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+.md-editor>.md-preview input[type="search"] {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-appearance: textfield;
+}
+.md-editor>.md-preview input[type="search"]::-webkit-search-cancel-button,
+.md-editor>.md-preview input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.md-editor>.md-preview fieldset {
+  padding: .35em .625em .75em;
+  margin: 0 2px;
+  border: 1px solid #c0c0c0;
+}
+.md-editor>.md-preview legend {
+  padding: 0;
+  border: 0;
+}
+.md-editor>.md-preview textarea {
+  overflow: auto;
+}
+.md-editor>.md-preview optgroup {
+  font-weight: bold;
+}
+.md-editor>.md-preview table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.md-editor>.md-preview td,
+.md-editor>.md-preview th {
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.md-editor>.md-preview a {
+  color: #428bca;
+  text-decoration: none;
+}
+.md-editor>.md-preview a:hover,
+.md-editor>.md-preview a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+.md-editor>.md-preview a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.md-editor>.md-preview figure {
+  margin: 0;
+}
+.md-editor>.md-preview img {
+  vertical-align: middle;
+}
+.md-editor>.md-preview hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.md-editor>.md-preview h1,
+.md-editor>.md-preview h2,
+.md-editor>.md-preview h3,
+.md-editor>.md-preview h4,
+.md-editor>.md-preview h5,
+.md-editor>.md-preview h6,
+.md-editor>.md-preview .h1,
+.md-editor>.md-preview .h2,
+.md-editor>.md-preview .h3,
+.md-editor>.md-preview .h4,
+.md-editor>.md-preview .h5,
+.md-editor>.md-preview .h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.md-editor>.md-preview h1{
+    margin: .67em 0;
+  font-size: 2em;
+}
+
+.md-editor>.md-preview h1 small,
+.md-editor>.md-preview h2 small,
+.md-editor>.md-preview h3 small,
+.md-editor>.md-preview h4 small,
+.md-editor>.md-preview h5 small,
+.md-editor>.md-preview h6 small,
+ {
+  font-weight: normal;
+  line-height: 1;
+  color: #999;
+}
+
+.md-editor>.md-preview h1,
+.md-editor>.md-preview .h1 {
+  font-size: 36px;
+}
+.md-editor>.md-preview h2,
+.md-editor>.md-preview .h2 {
+  font-size: 30px;
+}
+.md-editor>.md-preview h3,
+.md-editor>.md-preview .h3 {
+  font-size: 24px;
+}
+.md-editor>.md-preview h4,
+.md-editor>.md-preview .h4 {
+  font-size: 18px;
+}
+.md-editor>.md-preview h5,
+.md-editor>.md-preview .h5 {
+  font-size: 14px;
+}
+.md-editor>.md-preview h6,
+.md-editor>.md-preview .h6 {
+  font-size: 12px;
+}
+.md-editor>.md-preview p {
+  margin: 0 0 10px;
+    color: inherit;
+
+}

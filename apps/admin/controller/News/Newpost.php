@@ -18,6 +18,7 @@ class Controller_Admin_News_Newpost extends ypAdminController {
 
 		$this->set('form_action', $this->Link->build('Admin/News/Newpost/Progress'));
 		$this->set('ajax_newpost_url', $this->Link->build('Admin/News/Ajax/Getalias', TRUE, array('title' => '')));
+		$this->set('editor', $this->Setting->get('editor'));
 		$this->Loader->model('Admin/News/Newpost');
 
 		// ===============
@@ -54,6 +55,7 @@ class Controller_Admin_News_Newpost extends ypAdminController {
 		$this->_data['post']['post'] = htmlspecialchars((string) $this->Request->POST['post_content']);
 		$this->_data['post']['keyword']	= htmlspecialchars((string) $this->Request->POST['keyword']);
 		$this->_data['post']['tag']	= htmlspecialchars($this->_fixTag($this->Request->POST['tag']));
+		$this->_data['post']['editor'] = htmlspecialchars(trim($this->Request->POST['editor']));
 		$this->_data['post']['save'] = $this->Request->POST['submit'] != 'publish-now' ? 0 : 1;
 
 		if (strlen($this->_data['post']['title']) < 5 OR strlen($this->_data['post']['title']) > 150) {
