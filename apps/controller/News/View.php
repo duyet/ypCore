@@ -46,7 +46,9 @@ class Controller_News_View extends ypController {
 
 		$news['post_date'] = $news['post_date'] ? date('d/m/Y h:i', $news['post_date']) : '';
 
-		$news['post'] = htmlspecialchars_decode($news['post']);
+		if ($news['editor'] == 'ckeditor') $news['post'] = htmlspecialchars_decode($news['post']);
+		else if ($news['editor'] == 'markdown') $news['post'] = __MARKDOWN::getInstance()->compile($news['post']);
+
 		$news['author'] = $news['username'];
 		$news['author_link'] = $this->Link->build('User/User', FALSE, array('userid' => $news['user_id']));
 		if ($this->Setting->get('show_view_counter') AND intval($this->Setting->get('show_view_counter')) == 0) { 

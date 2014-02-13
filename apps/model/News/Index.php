@@ -47,7 +47,10 @@ class Model_News_Index extends ypModel {
 	public function progressDataPost($post = array()) {
 		$post['post_date_tag'] = date('d-m-y', $post['post_date']);
 		$post['post_date_text'] = date('d M Y', $post['post_date']);
-		$post['post'] = htmlspecialchars_decode((string) $post['post']);
+		
+
+		if ($post['editor'] == 'ckeditor') $post['post'] = htmlspecialchars_decode((string) $post['post']);
+		else if ($news['editor'] == 'markdown') $news['post'] = __MARKDOWN::getInstance()->compile($news['post']);
 
 		if ($this->Setting->get('news_view_request_type', 'string') == 'alias') {
 			if ($this->Link->rewrite) 
@@ -74,10 +77,14 @@ class Model_News_Index extends ypModel {
 		}
 
 		// Break post
-		$break = '<div style="page-break-after: always;"><span style="display:none">&nbsp;</span></div>';
-		$post['post'] = explode($break, $post['post']);
-		$post['post'] = $post['post'][0];
-
+		if ($post['editor'] == 'ckeditor') {
+			$break = '<div style="page-break-after: always;"><span style="display:none">&nbsp;</span></div>';
+			$post['post'] = explode($break, $post['post']);
+			$post['post'] = $post['post'][0];
+		} else if ($post['editor'] == 'markdown') {
+			$break = preg_match('/(\/\/[-]{3+})/', $post['post'], $matches);
+		}
+		
 		return $post;
 	}
 
