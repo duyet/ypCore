@@ -6,8 +6,12 @@ by LvdUit
 
 -------------------
 ### About
+
 ypCore được xây dựng bởi LvDuit, với ước mơ một nỗ lực trở thành CMS mã nguồn mở mạnh mẽ và chuyên nghiệp tại Việt Nam.
 Cấu trúc hệ thống được nâng cấp liên tục, với chức năng dễ sử dụng và đẹp nhất có thể.
+
+
+ypCore is the version of Content Management System – CMS, which is developed by Vietnamese, just one human from UIT. ypCore allows you to build and manage websites, blogging, .. . You can download, install and use compeletely free at right here.
 
 ### I am Alone
 Vâng ypCore được sáng lập bởi LvDuit. Tham gia với tôi chứ. 
