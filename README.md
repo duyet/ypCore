@@ -7,7 +7,7 @@ by LvdUit
 -------------------
 ### About
 
-ypCore được xây dựng bởi LvDuit, với ước mơ một nỗ lực trở thành CMS mã nguồn mở mạnh mẽ và chuyên nghiệp tại Việt Nam.
+ypCore */wai-bi-core/* được xây dựng bởi LvDuit, với ước mơ một nỗ lực trở thành CMS mã nguồn mở mạnh mẽ và chuyên nghiệp tại Việt Nam.
 Cấu trúc hệ thống được nâng cấp liên tục, với chức năng dễ sử dụng và đẹp nhất có thể.
 
 
