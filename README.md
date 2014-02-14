@@ -1,6 +1,8 @@
 # ypCore CMS v0.1.0
 by LvdUit
 
+[![Donate](https://pledgie.com/campaigns/24161.png?skin_name=chrome)](https://pledgie.com/campaigns/24161 "Click here to lend your support to: ypCore CMS (CMS of Vietnamese) and make a donation at pledgie.com !")
+
 
 -------------------
 ### About
