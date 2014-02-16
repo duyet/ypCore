@@ -6,19 +6,32 @@ class Controller_Admin_News_Newpost extends ypAdminController {
 		$this->loadLanguage('Admin/News/Newpost');
 
 		// Edit post, load from id
-		$post = FALSE;
+		$post = array();
 		if (isset($this->Request->GET['post_id']) AND (int) $this->Request->GET['post_id'] > 0) {
 			$postId = (int) $this->Request->GET['post_id'];
 			$this->Loader->model('Admin/News/Edit');
 			$post = $this->Model_Admin_News_Edit->loadPost($postId);
 		}
+
+		if (count($this->Request->POST) > 0) {
+			array_merge($post, $this->Request->POST);
+		}
+
 		if ($post) {
 			$this->set('post', $post);
 		}
 
+		// post editor
+		$accept_editor = array('markdown', 'ckeditor');
+		$editor = $this->Setting->get('editor');
+		if (isset($post['editor'])) $editor = $post['editor'];
+		if (isset($this->Request->REQUEST['editor']) AND in_array($this->Request->REQUEST['editor'], $accept_editor)) {
+			$editor = $this->Request->REQUEST['editor'];
+		} 
+
 		$this->set('form_action', $this->Link->build('Admin/News/Newpost/Progress'));
 		$this->set('ajax_newpost_url', $this->Link->build('Admin/News/Ajax/Getalias', TRUE, array('title' => '')));
-		$this->set('editor', $this->Setting->get('editor'));
+		$this->set('editor', $editor);
 		$this->Loader->model('Admin/News/Newpost');
 
 		// ===============

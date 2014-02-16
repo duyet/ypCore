@@ -24,8 +24,8 @@
 <main role="main" id="main" contenteditable="false">
 	<aside id="notifications">
 		<!-- Notifications -->
-		{if !empty($error)}<div class="notification-error">{$error}</div>{/if}
-		{if !empty($success)}<div class="notification-success">{$success}</div>{/if}
+		{if !empty($error)}<div class="notification-error">{$error}<a href="#" class="close"></a></div>{/if}
+		{if !empty($success)}<div class="notification-success">{$success}<a href="#" class="close"></a></div>{/if}
 	</aside>
 
 	<form action="{$form_action}" method="POST">
@@ -40,8 +40,8 @@
 			    </section>
 			</header>
 
+			<!-- Post nav -->
 		    <section class="entry-container">
-		    	<!-- Large modal -->
 				<div class="head-param">
 					<input type="hidden" name="editor" value="{$editor}" />
 
@@ -55,6 +55,8 @@
 					</div>
 
 					<div class="rightside">
+							<!-- Select Editor -->
+							Editor: <a href="./?editor={if $editor == 'ckeditor'}markdown{else}ckeditor{/if}">Use {if $editor == 'ckeditor'}Markdown{else}CkEditor{/if}</a>
 							<a class="post-settings" href="#" data-toggle="modal" data-target="#modalSetting" title="Post Settings"><span class="hidden">Post Settings</span></a>
 			                <button type="submit" class="" data-loading-text="Loading..." name="submit" value="save-draft">Save Draft</button>
 			                <button type="submit" class="publish-button" data-loading-text="Saving..." name="submit" value="publish-now">Publish Now</button>
@@ -193,9 +195,6 @@
 			    </div>
 			  </div>
 			</div>
-
-
-
 		</section>
 	</form>
 </main>
@@ -217,44 +216,6 @@ var config = {
 <script type="text/javascript" src="{$static_url}/javascript/bootstrap/bootstrap-modal.js"></script>
 
 <script type="text/javascript" src="{$static_url}/jquery/textext/js/textext.core.js"></script>
-<script type="text/javascript" src="{$static_url}/jquery/textext/js/textext.plugin.tags.js"></script>
-<script type="text/javascript">
-	$('#tags')
-		.textext({
-			plugins : 'tags autocomplete'
-		})
-		.bind('getSuggestions', function(e, data)
-		{
-			var list = [
-					'Basic',
-					'Closure',
-					'Cobol',
-					'Delphi',
-					'Erlang',
-					'Fortran',
-					'Go',
-					'Groovy',
-					'Haskel',
-					'Java',
-					'JavaScript',
-					'OCAML',
-					'PHP',
-					'Perl',
-					'Python',
-					'Ruby',
-					'Scala'
-				],
-				textext = $(e.target).textext()[0],
-				query = (data ? data.query : '') || ''
-				;
-
-			$(this).trigger(
-				'setSuggestions',
-				{ result : textext.itemManager().filter(list, query) }
-			);
-		})
-		;
-</script>
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
@@ -283,7 +244,7 @@ var config = {
 (function () {
     'use strict';
 
-        var url = 'server/php/';
+        var url = '';
 
     angular.module('ypMedia', [
         'blueimp.fileupload'
@@ -374,36 +335,8 @@ $('#pub-time').timepicker({
 <script src="{$static_url}/plugin/bootstrap-markdown/js/to-markdown.js"></script>
 <script src="{$static_url}/plugin/bootstrap-markdown/js/bootstrap-markdown.js"></script>
 <script>
-$("#post_content").markdown({
-  additionalButtons: [
-    [{
-          name: "groupCustom",
-          data: [{
-            name: "breakPage",
-            toggle: true, // this param only take effect if you load bootstrap.js
-            title: "Break page",
-            icon: "glyphicon glyphicon-flash",
-            callback: function(e){
-              // Replace selection with some drinks
-              var _break, cursor,
-                  selected = e.getSelection(), content = e.getContent(),
-
-                  //index = Math.floor((Math.random()*10)+1)
-
-
-              // Give random drink
-              _break = "//------"
-
-              // transform selection and set the cursor into chunked text
-              e.replaceSelection(_break)
-              cursor = selected.start
-
-              // Set the cursor
-              e.setSelection(cursor,cursor+chunk.length)
-            }
-          }]
-    }]
-  ]
-})
+$("#post_content").markdown();
 </script>
 {/if}
+
+{$Footer}
