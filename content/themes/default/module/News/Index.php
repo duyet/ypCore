@@ -1,4 +1,6 @@
 {$Header}
+<link rel="next" href="{$next_page_link}">
+<link rel="prev" href="{$pre_page_link}">
 
 <main class="content" role="main">
 {if count($posts) == 0} 

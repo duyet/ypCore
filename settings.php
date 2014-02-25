@@ -28,9 +28,6 @@ define('ACTIVE_FIREWALL', TRUE);
 // Active https method if it avaible
 define('ACTIVE_HTTPS', TRUE);
 
-// Use cdn to host static file
-define('USE_CDN', TRUE);
-
 // ypCore root dir, not edit
 define ('YPCORE_ROOT', str_replace("\\", "/", pathinfo($_this, PATHINFO_DIRNAME)));
 
@@ -75,7 +72,7 @@ define ('ADMIN_TEMPLATE_DIR', YPCORE_ROOT . '/' . ADMIN_DIR . '/view/');
 
 // Static javascript, css, images folder (domain).
 // Neu muon luu static file sang subdomain, su dung dong thu 2
-define ('YPCORE_STATIC_DIR', 'static');
+define ('YPCORE_STATIC_DIR', 'content/static');
 //define ('YPCORE_STATIC_DIR', 'http://static.go.use.vn');
 
 // Cookie prefix, not edit
