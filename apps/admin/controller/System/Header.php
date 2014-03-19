@@ -40,10 +40,6 @@ class Controller_Admin_System_Header extends ypAdminController {
 		// Admin name
 		$this->set('username', $this->User->get('username'));
 
-		// Help scroller
-		$this->loadLanguage('Admin/System/HelpScroller');
-		$this->randomArray($this->_data['help_scroller']);
-		$this->set('help_scroller', $this->_data['help_scroller']);
 		
 		// Menu link 
 		$menu['home'] = $this->Link->build('Admin/Index/Home', FALSE);
