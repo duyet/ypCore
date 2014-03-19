@@ -49,8 +49,9 @@ class Model_News_Index extends ypModel {
 		$post['post_date_text'] = date('d M Y', $post['post_date']);
 		
 
-		if ($post['editor'] == 'ckeditor') $post['post'] = htmlspecialchars_decode((string) $post['post']);
-		else if ($news['editor'] == 'markdown') $news['post'] = __MARKDOWN::getInstance()->compile($news['post']);
+		if ($news['editor'] == 'markdown') $news['post'] = __MARKDOWN::getInstance()->compile($news['post']);
+		else if ($post['editor'] == 'ckeditor') $post['post'] = htmlspecialchars_decode((string) $post['post']);
+		else $post['post'] = htmlspecialchars_decode((string) $post['post']);
 
 		if ($this->Setting->get('news_view_request_type', 'string') == 'alias') {
 			if ($this->Link->rewrite) 
