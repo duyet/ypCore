@@ -40,7 +40,7 @@ class Controller_Admin_News_Newpost extends ypAdminController {
 		$this->set('pub_time', date('h:i'));
 
 		$this->set('form_action', $this->Link->build('Admin/News/Newpost/Progress'));
-		$this->set('ajax_newpost_url', $this->Link->build('Admin/News/Ajax/Getalias', TRUE, array('title' => '')));
+		$this->set('ajax_get_alias_url', $this->Link->build('Admin/News/Ajax/Getalias'));
 		$this->set('upload_url', $this->Link->build('Admin/News/Upload'));
 		$this->set('editor', $editor);
 		$this->Loader->model('Admin/News/Newpost');

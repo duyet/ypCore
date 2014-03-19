@@ -1,16 +1,22 @@
 <?php 
-class Controller_Admin_Module_News_Ajax extends ypAdminController {
+class Controller_Admin_News_Ajax extends ypAdminController {
 	public function Getalias() {
 		$this->checkLogin();
 
-		$title = trim((string) urldecode($this->Request->GET['title']));
-		if (!$title) {
-			die('');
+		$returnFullLink = FALSE;
+
+		$title = trim((string) urldecode($this->Request->REQUEST['title']));
+		if (empty($title)) {
+			die('Error!');
 		}
 
 		$this->Loader->helper('string');
-		$link  = $this->Link->build('News/Views', TRUE, array('alias' => createAlias($title)));
+		$alias = createAlias($title);
 
-		die($link);
+		if ($returnFullLink) {
+			die($this->Link->build('News/Views', TRUE, array('alias' => createAlias($title))));
+		} 
+
+		die($alias);
 	}
 }

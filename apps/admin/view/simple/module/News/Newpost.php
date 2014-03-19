@@ -27,7 +27,7 @@
 		<section class="entry-container" ng-app="ypEditor" ng-controller="__ypEditor">
 			<header>
 				<section class="box entry-title-editor">
-			         <input class="" type="text" name="post_title" value="{$post.title}" placeholder="Post title here..."  autofocus="autofocus" />
+			         <input class="" type="text" name="post_title" id="post_title" value="{$post.title}" placeholder="Post title here..."  autofocus="autofocus" />
 			    </section>
 			</header>
 
@@ -72,6 +72,7 @@
 							<div class="form-group">
 								<label for="url">URL</label>
 								<input type="text" class="form-control" id="url" placeholder="URL" name="title_alias" value="{$post.title_alias}">
+								<a href="javascript: void(0);" id="ypGetAlias">F5</a> 
 							</div>
 
 							<div class="form-group pub-date">
@@ -215,5 +216,17 @@ if ($('#pub-time-auto').attr("checked")) {
 }
 </script>
 
+<script>
+	$('#ypGetAlias').click(function(){
+		var post_title = $('#post_title').val();
+		$.ajax({
+			url: "{$ajax_get_alias_url}",
+			type: "POST",
+			data: { title: post_title }
+		}).done(function(data) {
+			$('#url').val(data);
+		});
+	});
 
+</script>
 {$Footer}
