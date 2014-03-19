@@ -3,11 +3,12 @@
 <main role="main" id="main">
   <div class="wrapper stat">
     <div class="stat-head">
-      <a href="./stat?type=week&chart={$chart}">Week</a> | 
       <a href="./stat?type=month&chart={$chart}">Month</a> | 
       <a href="./stat?type=year&chart={$chart}">Year</a>
     </div>
-	 <div id="ypstat-main" style="width: 900px; height: 500px; margin: 4px auto"></div>
+    <div class="row"></div>
+	 <div id="ypstat-main-month" style="width: 600px; height: 500px; margin: 4px auto"></div>
+   <div id="ypstat-main-year" style="width: 600px; height: 500px; margin: 4px auto"></div>
  </div>
 </main>
 
@@ -29,7 +30,7 @@
         var options = {
           title: 'Couter analytic of {$type}]',
          // curveType: "function",
-          width: 900, height: 400,
+          width: 600, height: 400,
           vAxis: {  }
         };
       
