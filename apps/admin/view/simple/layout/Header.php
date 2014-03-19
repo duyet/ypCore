@@ -60,7 +60,7 @@
                 <img class="avatar" src="{$template_url}/img/user-image.png" alt="Avatar" />
                 <span class="name">{$admin.username}</span>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" role="menu">
                 <li class="usermenu-profile"><a href="#">Your Profile</a></li>
                 <li class="divider"></li>
                 <li class="usermenu-help"><a href="#">Help / Support</a></li>
