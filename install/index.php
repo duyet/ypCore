@@ -5,7 +5,7 @@ require_once ($root . 'settings.php');
 
 // Check if config.php exists
 if (file_exists ($root . APP_CONFIG_FILE)) {
-	noticePage('ypCore already install!!', 'Stop install!');
+	//noticePage('ypCore already install!!', 'Stop install!');
 }
 
 $lang = 'en';
