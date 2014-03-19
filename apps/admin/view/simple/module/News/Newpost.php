@@ -8,18 +8,9 @@
 <link rel="stylesheet" href="{$static_url}/plugin/bootstrap-markdown/css/reset-css-review.css">
 {/if}
 
-<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-<link rel="stylesheet" href="{$static_url}/jquery/upload/css/jquery.fileupload.css">
-<link rel="stylesheet" href="{$static_url}/jquery/upload/css/jquery.fileupload-ui.css">
-<!-- CSS adjustments for browsers with JavaScript disabled -->
-<noscript><link rel="stylesheet" href="{$static_url}/jquery/upload/css/jquery.fileupload-noscript.css"></noscript>
-<noscript><link rel="stylesheet" href="{$static_url}/jquery/upload/css/jquery.fileupload-ui-noscript.css"></noscript>
-<style>
-/* Hide Angular JS elements before initializing */
-.ng-cloak {
-    display: none;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="{$static_url}/jquery/upload/uploadify.css">
+
+
 
 <main role="main" id="main" contenteditable="false">
 	<aside id="notifications">
@@ -85,12 +76,15 @@
 
 							<div class="form-group pub-date">
 								<label for="pub-date">Pub Date</label>
-								<input type="text" class="span2" value="01/01/2014" data-date-format="mm/dd/yyyy" id="pub-date"> @
-								<input type="text" class="span1" value="" id="pub-time">
+								<input type="checkbox" name="pub-time-auto" id="pub-time-auto" value="1" onselect="document.custom_date_panel.display = 'normal'"> Auto <br />
+								<div id="custom_date_panel" {if $isCustomDate}style="display:none;"{/if}>
+									<input type="text" class="span2" name="pub-date" value="{$pub_date}" data-date-format="mm-dd-yyyy" id="pub-date"> @
+									<input type="text" class="span1" id="pub-time" value="{$pub_time}" id="pub-time">
+								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="keyword">Pub Date</label>
+								<label for="keyword">Key words</label>
 								<input type="text" class="form-control" id="keyword" placeholder="Post keyword" name="keyword" value="{$post.keyword}">
 							</div>
 
@@ -116,81 +110,17 @@
 			      <div class="modal-body" >
 			       	<!-- -  Upload media  - -->
 			       	{literal}
-						<form id="fileupload" action="#" method="POST" enctype="multipart/form-data" data-ng-app="ypMedia" data-ng-controller="ypMediaUploader" data-file-upload="options" data-ng-class="\{'fileupload-processing': processing() || loadingFiles\}">
-						    <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-						    <div class="row fileupload-buttonbar">
-						        <div class="col-lg-7">
-						            <!-- The fileinput-button span is used to style the file input field as button -->
-						            <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
-						                <i class="glyphicon glyphicon-plus"></i>
-						                <span>Add files...</span>
-						                <input type="file" name="files[]" multiple ng-disabled="disabled">
-						            </span>
-						            <button type="button" class="btn btn-primary start" data-ng-click="submit()">
-						                <i class="glyphicon glyphicon-upload"></i>
-						                <span>Start upload</span>
-						            </button>
-						            <button type="button" class="btn btn-warning cancel" data-ng-click="cancel()">
-						                <i class="glyphicon glyphicon-ban-circle"></i>
-						                <span>Cancel upload</span>
-						            </button>
-						            <!-- The global file processing state -->
-						            <span class="fileupload-process"></span>
-						        </div>
-						        <!-- The global progress state -->
-						        <div class="col-lg-5 fade" data-ng-class="{in: active()}">
-						            <!-- The global progress bar -->
-						            <div class="progress progress-striped active" data-file-upload-progress="progress()"><div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div></div>
-						            <!-- The extended global progress state -->
-						            <div class="progress-extended">&nbsp;</div>
-						        </div>
-						    </div>
-						    <!-- The table listing the files available for upload/download -->
-						    <table class="table table-striped files ng-cloak">
-						        <tr data-ng-repeat="file in queue" data-ng-class="{'processing': file.$processing()}">
-						            <td data-ng-switch data-on="!!file.thumbnailUrl">
-						                <div class="preview" data-ng-switch-when="true">
-						                    <a data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a>
-						                </div>
-						                <div class="preview" data-ng-switch-default data-file-upload-preview="file"></div>
-						            </td>
-						            <td>
-						                <p class="name" data-ng-switch data-on="!!file.url">
-						                    <span data-ng-switch-when="true" data-ng-switch data-on="!!file.thumbnailUrl">
-						                        <a data-ng-switch-when="true" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery>{{file.name}}</a>
-						                        <a data-ng-switch-default data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}">{{file.name}}</a>
-						                    </span>
-						                    <span data-ng-switch-default>{{file.name}}</span>
-						                </p>
-						                <strong data-ng-show="file.error" class="error text-danger">{{file.error}}</strong>
-						            </td>
-						            <td>
-						                <p class="size">{{file.size | formatFileSize}}</p>
-						                <div class="progress progress-striped active fade" data-ng-class="{pending: 'in'}[file.$state()]" data-file-upload-progress="file.$progress()"><div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div></div>
-						            </td>
-						            <td>
-						                <button type="button" class="btn btn-primary start" data-ng-click="file.$submit()" data-ng-hide="!file.$submit || options.autoUpload" data-ng-disabled="file.$state() == 'pending' || file.$state() == 'rejected'">
-						                    <i class="glyphicon glyphicon-upload"></i>
-						                    <span>Start</span>
-						                </button>
-						                <button type="button" class="btn btn-warning cancel" data-ng-click="file.$cancel()" data-ng-hide="!file.$cancel">
-						                    <i class="glyphicon glyphicon-ban-circle"></i>
-						                    <span>Cancel</span>
-						                </button>
-						                <button data-ng-controller="FileDestroyController" type="button" class="btn btn-danger destroy" data-ng-click="file.$destroy()" data-ng-hide="!file.$destroy">
-						                    <i class="glyphicon glyphicon-trash"></i>
-						                    <span>Delete</span>
-						                </button>
-						            </td>
-						        </tr>
-						    </table>
+						<form>
+							<div id="queue"></div>
+							<input id="file_upload" name="file_upload" type="file" multiple="true">
+							<a href="javascript:$('#file_upload').uploadify('upload','*')">Upload Files</a>
+							<div id="images_uploaded"></div>
 						</form>
 					{/literal}
 					<!-- -  / Upload media  - -->
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
+
 			      </div>
 			    </div>
 			  </div>
@@ -198,6 +128,12 @@
 		</section>
 	</form>
 </main>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{$static_url}/javascript/jquery/jquery-1.9.1.js"><\/script>')</script>
+
+
 
 {if $editor == 'ckeditor'}
 <script type="text/javascript" src="{$static_url}/javascript/ckeditor/ckeditor.js"></script>
@@ -212,112 +148,44 @@ var config = {
 </script>
 {/if}
 
-<script type="text/javascript" src="{$static_url}/javascript/jquery/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="{$static_url}/javascript/bootstrap/bootstrap-modal.js"></script>
 
-<script type="text/javascript" src="{$static_url}/jquery/textext/js/textext.core.js"></script>
+<script src="{$static_url}/jquery/upload/jquery.uploadify.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#file_upload').uploadify({
+			'formData'     : {
+				'timestamp' : '{time()}',
+				'token'     : '{md5('unique_salt' + time())}'
+			},
+			'swf'      : '{$static_url}/jquery/upload/uploadify.swf',
+			'uploader' : '{$static_url}/jquery/upload/uploadify.php',
+			'auto' : 0,
+			'onQueueComplete' : function(uploads) {
+           		//alert(uploads.successful + ' files were uploaded successfully.');
+       		},
+			'onUploadComplete' : function(file, data) {
+				
+			},
+			hideButton:0, successTimeout:999, wmode:"transparent", buttonClass: "button-add",
+			buttonText:"+ Chọn hình",
+			fileTypeDesc:"Image Files",
+			fileTypeExts:"*.jpg; *.png",
+			multi: 1,
+			onSelect: function(){},
+			onUploadError: function(n,t,i,r){
+				alert(r);alert(t)
+			},
+			onUploadStart: function(){},
+			onUploadSuccess: function(file, data, response){
+				$('#images_uploaded').load('Admin/News/Upload/List?session={md5('unique_salt' + time())}');
+			},
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="{$static_url}/jquery/upload/js/vendor/jquery.ui.widget.js"></script>
-<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
-<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-<script src="{$static_url}/jquery/upload/js/jquery.iframe-transport.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="{$static_url}/jquery/upload/js/jquery.fileupload.js"></script>
-<!-- The File Upload processing plugin -->
-<script src="{$static_url}/jquery/upload/js/jquery.fileupload-process.js"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script src="{$static_url}/jquery/upload/js/jquery.fileupload-image.js"></script>
-<!-- The File Upload audio preview plugin -->
-<script src="{$static_url}/jquery/upload/js/jquery.fileupload-audio.js"></script>
-<!-- The File Upload video preview plugin -->
-<script src="{$static_url}/jquery/upload/js/jquery.fileupload-video.js"></script>
-<!-- The File Upload validation plugin -->
-<script src="{$static_url}/jquery/upload/js/jquery.fileupload-validate.js"></script>
-<!-- The File Upload Angular JS module -->
-<script src="{$static_url}/jquery/upload/js/jquery.fileupload-angular.js"></script>
-<script>
-
-(function () {
-    'use strict';
-
-        var url = '';
-
-    angular.module('ypMedia', [
-        'blueimp.fileupload'
-    ])
-        .config([
-            '$httpProvider', 'fileUploadProvider',
-            function ($httpProvider, fileUploadProvider) {
-                delete $httpProvider.defaults.headers.common['X-Requested-With'];
-                fileUploadProvider.defaults.redirect = window.location.href.replace(
-                    /\/[^\/]*$/,
-                    '/cors/result.html?%s'
-                );
-            }
-        ])
-
-        .controller('ypMediaUploader', [
-            '$scope', '$http', '$filter', '$window',
-            function ($scope, $http) {
-                $scope.options = {
-                    url: url
-                };
-
-                $scope.loadingFiles = true;
-                $http.get(url)
-                    .then(
-                        function (response) {
-                            $scope.loadingFiles = false;
-                            $scope.queue = response.data.files || [];
-                        },
-                        function () {
-                            $scope.loadingFiles = false;
-                        }
-                    );
-
-            }
-        ])
-
-        .controller('FileDestroyController', [
-            '$scope', '$http',
-            function ($scope, $http) {
-                var file = $scope.file,
-                    state;
-                if (file.url) {
-                    file.$state = function () {
-                        return state;
-                    };
-                    file.$destroy = function () {
-                        state = 'pending';
-                        return $http({
-                            url: file.deleteUrl,
-                            method: file.deleteType
-                        }).then(
-                            function () {
-                                state = 'resolved';
-                                $scope.clear(file);
-                            },
-                            function () {
-                                state = 'rejected';
-                            }
-                        );
-                    };
-                } else if (!file.$cancel && !file._index) {
-                    file.$cancel = function () {
-                        $scope.clear(file);
-                    };
-                }
-            }
-        ]);
-
-}());
-
+		});
+	});
 </script>
 
+
+<script type="text/javascript" src="{$static_url}/javascript/bootstrap/bootstrap-modal.js"></script>
 
 <script src="{$static_url}/jquery/datepicker/js/bootstrap-datepicker.js"></script>
 <script>$('#pub-date').datepicker()</script>
@@ -338,5 +206,14 @@ $('#pub-time').timepicker({
 $("#post_content").markdown();
 </script>
 {/if}
+
+<script>
+if ($('#pub-time-auto').attr("checked")) {
+	$('#custom_date').slideDown(400);
+} else {
+	$('#custom_date').slideUp(400);
+}
+</script>
+
 
 {$Footer}

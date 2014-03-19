@@ -29,8 +29,19 @@ class Controller_Admin_News_Newpost extends ypAdminController {
 			$editor = $this->Request->REQUEST['editor'];
 		} 
 
+		// Pub time
+		if (isset($post['post_date'])) {
+			$isCustomDate = TRUE;
+		} else {
+			$isCustomDate = FALSE;
+		}
+		$this->set('isCustomDate', $isCustomDate);
+ 		$this->set('pub_date', date('d/m/Y'));
+		$this->set('pub_time', date('h:i'));
+
 		$this->set('form_action', $this->Link->build('Admin/News/Newpost/Progress'));
 		$this->set('ajax_newpost_url', $this->Link->build('Admin/News/Ajax/Getalias', TRUE, array('title' => '')));
+		$this->set('upload_url', $this->Link->build('Admin/News/Upload'));
 		$this->set('editor', $editor);
 		$this->Loader->model('Admin/News/Newpost');
 
@@ -69,7 +80,14 @@ class Controller_Admin_News_Newpost extends ypAdminController {
 		$this->_data['post']['keyword']	= htmlspecialchars((string) $this->Request->POST['keyword']);
 		$this->_data['post']['tag']	= htmlspecialchars($this->_fixTag($this->Request->POST['tag']));
 		$this->_data['post']['editor'] = htmlspecialchars(trim($this->Request->POST['editor']));
+		
+		$time = ($this->Request->POST['pub-time-auto'] == '1') ? time() : $this->_getPostTime();
+		$this->_data['post']['post_date'] = $time;
+		$this->_data['post']['pub_date'] = date('d-m-Y', $time);
+		$this->_data['post']['pub_time'] = date('h:i', $time);
+
 		$this->_data['post']['save'] = $this->Request->POST['submit'] != 'publish-now' ? 0 : 1;
+		if ($this->_data['post']['post_date'] > $this->Request->time) $this->_data['post']['save'] = 2;
 
 		if (strlen($this->_data['post']['title']) < 5 OR strlen($this->_data['post']['title']) > 150) {
 			$this->_data['error'] = $this->_data['error_title_strlen'];
@@ -106,6 +124,22 @@ class Controller_Admin_News_Newpost extends ypAdminController {
 			));
 			$this->Response->setOutput($this->render());
 		}
+	}
+
+	private function _getPostTime() {
+		if (!isset($this->Request->POST['pub-date']) OR !isset($this->Request->POST['pub-time'])) {
+			return time(); // by default, return current time if not exits `pub-time` and `pub-date`
+		}
+
+		$date = $this->Request->POST['pub-date'];
+		if (!preg_match('/([0-9]{2})-([0-9]{2}-([0-9]{4}))/', $date)) {
+			$date = date('dd-mm-yyyy');
+		}
+
+		$time = strtotime($time . ' ' . $date);
+		if (!($time > 0)) return time();
+
+		return $time;
 	}
 
 	/**
