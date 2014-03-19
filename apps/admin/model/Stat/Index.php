@@ -20,6 +20,14 @@ class Model_Admin_Stat_Index extends ypModel {
 		}
 	}
 
+	/**
+	 * Get counter.
+	 * Using $t, if not use, function will get current month/year.
+	 * 
+	 * @param  string  $type 
+	 * @param  integer $t
+	 * @return integer
+	 */
 	public function getSumCouter($type = 'year', $t = 0) {
 		if ($type == 'day') {
 			if ($t == 0) $day = $this->Request->day;
@@ -43,7 +51,7 @@ class Model_Admin_Stat_Index extends ypModel {
 		}
 
 		// Get all
-		$this->Db->query("SELECT COUNT(`value`) FROM `yp_stat`");
+		$this->Db->query("SELECT COUNT(`value`) as `value` FROM `yp_stat`");
 		$data = $this->Db->fetch();
 
 		return (int) $data['value'];
