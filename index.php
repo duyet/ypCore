@@ -61,3 +61,19 @@ $ypCore = new ypCore($registry);
 
 // And finish, Run it :)
 $ypCore->run();
+
+
+// ------------- END ---------------- //
+
+/**
+ * Open Source ypCore CMS
+ * Licsense: Apache License (see LICSENSE file)
+ * Author: LvDuit (c) 2014
+ * Location: HCMC, Vietnam
+ * Date: 01/01/2014
+ * AdminSite: http://lvduit.blogspot.com
+ */
+
+// ------------- DEBUG --------------- //
+
+?>
