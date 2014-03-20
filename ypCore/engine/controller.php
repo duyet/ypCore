@@ -37,6 +37,7 @@ abstract class ypController {
 		// Default 
 		$this->set('template_url', $this->Request->getSiteUrl() . '/' . APPS_TEMPLATE_DIR . '/' . $this->_templateName);
 		$this->set('site_url', $this->Request->getSiteUrl());
+		$this->set('this_url', $this->Link->getThisUrl(TRUE));
 		if ((boolean) $this->Setting->get('static_url_active')) {
 			$this->set('static_url', $this->Setting->get('static_url'));
 		} else {
