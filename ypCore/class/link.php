@@ -132,6 +132,10 @@ class __LINK {
 		return $this->code;
 	}
 
+	public function getThisUrl($fullUrl = FALSE) {
+		return $this->build($this->this(), $fullUrl, $this->params);
+	}
+
 	public function __get($key) {
 		return $this->_registry->get($key);
 	}
