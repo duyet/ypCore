@@ -1,7 +1,6 @@
 {$Header}
 
 
-
 <article class="post">
 	<h1 class="post-title">{$news.title}</h1>
 	<div class="time-author">
@@ -16,6 +15,21 @@
 	</section>
 
 	<hr />
+
+	<div class="yp-share row">
+		Share:   
+		<a class="" href="https://www.facebook.com/sharer/sharer.php?u={$this_url}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Facebook">
+            <span class="">Facebook</span>
+        </a>
+
+        <a class="" href="http://twitter.com/share?text=Hey,%20please%20read%20it&amp;url={$this_url}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Twitter">
+            <span class="">Twitter</span>
+        </a>
+
+        <a class="" href="https://plus.google.com/share?url={$this_url}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Google+">
+                        <span class="">Google+</span>
+        </a>
+	</div>
 
 	<div class="comment row">
 		{if $comment_disqus}
