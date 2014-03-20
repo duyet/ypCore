@@ -21,11 +21,11 @@ class Controller_Admin_Setting_Site extends ypAdminController {
 			$this->Loader->model('Admin/Setting/Index');
 			if (!$this->Model_Admin_Setting_Index->updateSetting($data)) {
 				$this->set('error', $this->_data['error_when_update_settings']);
+			} else {
+				// Update cache
+				$this->Setting->preLoadCache();
+				$this->set('success', $this->_data['update_success']);	
 			}
-			// Update cache
-			$this->Setting->preLoadCache();
-			
-			$this->set('success', $this->_data['update_success']);
 		}
 
 		$this->set('menu_active', 'site');
@@ -42,18 +42,10 @@ class Controller_Admin_Setting_Site extends ypAdminController {
 	}
 	
 	private function _getBool($value) {
-		if ((int)$value != 1) {
-			return 0;
-		}
-		
-		return 1;
+		return ((int)$value != 1 ? 0 : 1);
 	}
 	
 	private function _getLanguage($language) {
-		if ($language != 'vi') {
-			return 'en';
-		}
-		
-		return 'vi';
+		return ($language != 'vi') ? 'en' : 'vi';
 	}
 }
