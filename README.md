@@ -35,7 +35,7 @@ All issues and pull requests should be filed on the lvduit/ypCore repository.
 
 
 ### License
-ypCORE is open-sourced software licensed under the [![MIT license](http://opensource.org/licenses/MIT)]
+ypCORE is open-sourced software licensed under the MIT license
 
 
 ### Install
